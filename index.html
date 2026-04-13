@@ -149,6 +149,10 @@
     ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: #555; }
 
+    /* Slider hide scrollbar */
+    .nm-hide-scrollbar::-webkit-scrollbar { display: none; }
+    .nm-hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
     /* Animations */
     @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
     .animate-marquee { animation: marquee 25s linear infinite; }
@@ -442,73 +446,85 @@
       </div>
     </section>
 
-    <!-- Bento Grid Services Section -->
-    <section class="py-24 relative z-10 border-t border-white/5" id="services">
-      <div class="container mx-auto px-6 md:px-12">
-        <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-16 max-w-3xl stagger-up">Every digital service you need, perfected under one roof.</h2>
+    <!-- Services Slider Section (from vitaldark) -->
+    <section id="services" class="bg-[#080808] py-24 relative overflow-hidden border-t border-white/5">
+      <div class="container mx-auto px-6 md:px-12 mb-14 stagger-up">
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">
+          Every Marketing Service <br/>
+          <span class="text-neutral-500">All Under One Roof</span>
+        </h2>
+        <p class="text-lg text-neutral-400 mb-10 leading-relaxed font-light max-w-2xl">
+          From development and design to SEO, PPC, and automation — we deliver comprehensive digital solutions that drive traffic, generate leads, and maximize your revenue.
+        </p>
+      </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[280px]">
-          
-          <!-- Large Card (Col 2, Row 2) — SEO with dashboard image -->
-          <div class="bento-card col-span-1 md:col-span-2 md:row-span-2 bg-[#111]/50 border border-white/5 rounded-[32px] p-10 flex flex-col justify-between group stagger-up relative overflow-hidden">
-            <!-- Background SEO graph image -->
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="SEO Analytics" class="absolute inset-0 w-full h-full object-cover opacity-[0.07] group-hover:opacity-[0.12] transition-opacity duration-700 pointer-events-none">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#111] via-[#111]/80 to-transparent pointer-events-none"></div>
-            <div class="bento-content relative z-10">
-              <div class="w-16 h-16 rounded-2xl bg-[#1879A9]/20 text-[#1879A9] flex items-center justify-center mb-8">
-                <i data-lucide="search" class="w-8 h-8"></i>
+      <div class="relative w-full flex items-center">
+        <!-- Nav Buttons -->
+        <button id="nm-prev-btn" class="absolute left-4 md:left-8 z-20 w-14 h-14 rounded-full border border-white/10 flex items-center justify-center bg-[#0a0a0a] hover:bg-white/5 hover:border-white/20 transition-all text-white disabled:opacity-0 disabled:pointer-events-none hidden md:flex" aria-label="Previous">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <button id="nm-next-btn" class="absolute right-4 md:right-8 z-20 w-14 h-14 rounded-full border border-white/10 flex items-center justify-center bg-[#0a0a0a] hover:bg-white/5 hover:border-white/20 transition-all text-white disabled:opacity-0 disabled:pointer-events-none hidden md:flex" aria-label="Next">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+
+        <!-- Slider -->
+        <div id="nm-slider" class="flex overflow-x-auto snap-x snap-mandatory gap-6 w-full nm-hide-scrollbar items-stretch pb-10" style="padding-left: max(1.5rem, calc(50vw - 325px)); padding-right: max(1.5rem, calc(50vw - 325px)); scroll-behavior: smooth;">
+
+          <!-- Card 1: Development -->
+          <div class="nm-card w-[85vw] md:w-[650px] shrink-0 snap-center bg-[#0a0a0a] rounded-[24px] border border-white/10 p-8 md:p-10 flex flex-col-reverse md:flex-row gap-10 items-center transition-all duration-300 hover:scale-[1.03] hover:border-white/20 hover:shadow-[0_0_50px_rgba(255,255,255,0.05)] relative overflow-hidden group cursor-grab active:cursor-grabbing select-none stagger-up">
+            <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
+            <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
+              <h3 class="text-[32px] md:text-[36px] font-bold text-white mb-4">Development</h3>
+              <p class="text-neutral-400 mb-8 leading-relaxed text-[15px]">Robust, scalable architectures and front-end experiences built on modern frameworks. We engineer platforms that convert.</p>
+              <div class="flex flex-wrap gap-2.5">
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-neutral-300 text-[13px] rounded-full border border-white/5">Web Apps</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-neutral-300 text-[13px] rounded-full border border-white/5">Headless Commerce</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-neutral-300 text-[13px] rounded-full border border-white/5">API Integrations</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-neutral-300 text-[13px] rounded-full border border-white/5">Performance Tuning</span>
               </div>
-              <h3 class="text-3xl font-bold mb-4 text-white">Advanced SEO Strategy</h3>
-              <p class="text-neutral-400 text-lg max-w-md font-medium">Dominate organic search with technical precision, high-authority backlinking, and content architectures designed for AI-driven search engines.</p>
             </div>
-            <div class="bento-content relative z-10 self-end mt-8 w-12 h-12 rounded-full bg-white text-black flex items-center justify-center group-hover:-rotate-45 transition-transform duration-300 cursor-pointer">
-              <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            <div class="w-[120px] md:w-[160px] shrink-0 relative z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
+              <svg viewBox="0 0 160 160" class="w-full h-auto"><defs><linearGradient id="blueCyan" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#2dd4bf"/></linearGradient></defs><polygon points="80,30 115,50 115,90 80,110 45,90 45,50" fill="none" stroke="url(#blueCyan)" stroke-width="1.5" opacity="0.8"/><polygon points="80,50 100,60 100,80 80,90 60,80 60,60" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.4"/><circle cx="80" cy="70" r="4" fill="#fff"/><line x1="80" y1="30" x2="80" y2="50" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/><line x1="115" y1="90" x2="100" y2="80" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/><line x1="45" y1="90" x2="60" y2="80" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/></svg>
             </div>
           </div>
 
-          <!-- Medium Card (Col 1, Row 1) -->
-          <div class="bento-card bg-[#111]/50 border border-white/5 rounded-[32px] p-8 flex flex-col group stagger-up">
-            <div class="bento-content flex-grow">
-              <div class="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center mb-6">
-                <i data-lucide="monitor-smartphone" class="w-6 h-6"></i>
+          <!-- Card 2: Digital -->
+          <div class="nm-card w-[85vw] md:w-[650px] shrink-0 snap-center bg-[#0a0a0a] rounded-[24px] border border-white/10 p-8 md:p-10 flex flex-col-reverse md:flex-row gap-10 items-center transition-all duration-300 hover:scale-[1.03] hover:border-white/20 hover:shadow-[0_0_50px_rgba(255,255,255,0.05)] relative overflow-hidden group cursor-grab active:cursor-grabbing select-none stagger-up">
+            <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
+            <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
+              <h3 class="text-[32px] md:text-[36px] font-bold text-white mb-4">Digital</h3>
+              <p class="text-neutral-400 mb-8 leading-relaxed text-[15px]">From paid media to SEO and content — we run data-backed digital campaigns that drive qualified traffic and turn attention into revenue.</p>
+              <div class="flex flex-wrap gap-2.5">
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-neutral-300 text-[13px] rounded-full border border-white/5">SEO & PPC</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-neutral-300 text-[13px] rounded-full border border-white/5">Social Ads</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-neutral-300 text-[13px] rounded-full border border-white/5">Email Flows</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-neutral-300 text-[13px] rounded-full border border-white/5">Lead Generation</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-neutral-300 text-[13px] rounded-full border border-white/5">Paid Scaling</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-neutral-300 text-[13px] rounded-full border border-white/5">Traffic Growth</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-neutral-300 text-[13px] rounded-full border border-white/5">Conversion Strategy</span>
               </div>
-              <h3 class="text-2xl font-bold mb-2">Web Engineering</h3>
-              <p class="text-neutral-400 font-medium">Award-winning UI/UX combined with blazing fast full-stack code.</p>
+            </div>
+            <div class="w-[120px] md:w-[160px] shrink-0 relative z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
+              <svg viewBox="0 0 160 160" class="w-full h-auto"><defs><linearGradient id="pinkPurple" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#a855f7"/></linearGradient></defs><line x1="80" y1="80" x2="30" y2="40" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><line x1="80" y1="80" x2="130" y2="30" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><line x1="80" y1="80" x2="140" y2="90" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><line x1="80" y1="80" x2="100" y2="130" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><line x1="80" y1="80" x2="40" y2="110" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><circle cx="30" cy="40" r="9" fill="#0a0a0a" stroke="#fff" stroke-width="1.5"/><circle cx="130" cy="30" r="11" fill="#0a0a0a" stroke="url(#pinkPurple)" stroke-width="1.5"/><circle cx="140" cy="90" r="8" fill="#0a0a0a" stroke="#fff" stroke-width="1.5"/><circle cx="100" cy="130" r="9" fill="#0a0a0a" stroke="#fff" stroke-width="1.5"/><circle cx="40" cy="110" r="10" fill="#0a0a0a" stroke="#fff" stroke-width="1.5"/><circle cx="80" cy="80" r="20" fill="#0a0a0a" stroke="url(#pinkPurple)" stroke-width="1.5"/></svg>
             </div>
           </div>
 
-          <!-- Medium Card (Col 1, Row 1) -->
-          <div class="bento-card bg-[#111]/50 border border-white/5 rounded-[32px] p-8 flex flex-col group stagger-up">
-            <div class="bento-content flex-grow">
-              <div class="w-12 h-12 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center mb-6">
-                <i data-lucide="zap" class="w-6 h-6"></i>
+          <!-- Card 3: Design -->
+          <div class="nm-card w-[85vw] md:w-[650px] shrink-0 snap-center bg-[#0a0a0a] rounded-[24px] border border-white/10 p-8 md:p-10 flex flex-col-reverse md:flex-row gap-10 items-center transition-all duration-300 hover:scale-[1.03] hover:border-white/20 hover:shadow-[0_0_50px_rgba(255,255,255,0.05)] relative overflow-hidden group cursor-grab active:cursor-grabbing select-none stagger-up">
+            <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
+            <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
+              <h3 class="text-[32px] md:text-[36px] font-bold text-white mb-4">Design</h3>
+              <p class="text-neutral-400 mb-8 leading-relaxed text-[15px]">We create brand identities and digital interfaces that not only look stunning but drive conversions across all channels.</p>
+              <div class="flex flex-wrap gap-2.5">
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-neutral-300 text-[13px] rounded-full border border-white/5">Brand Identity</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-neutral-300 text-[13px] rounded-full border border-white/5">UI/UX Design</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-neutral-300 text-[13px] rounded-full border border-white/5">Social Creative</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-neutral-300 text-[13px] rounded-full border border-white/5">Email Design</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-neutral-300 text-[13px] rounded-full border border-white/5">Motion Graphics</span>
               </div>
-              <h3 class="text-2xl font-bold mb-2">PPC Campaigns</h3>
-              <p class="text-neutral-400 font-medium">Data-driven paid ads designed for immediate and highly scalable ROI.</p>
             </div>
-          </div>
-
-          <!-- Wide Card (Col 2, Row 1) -->
-          <div class="bento-card col-span-1 md:col-span-2 bg-[#111]/50 border border-white/5 rounded-[32px] p-8 flex flex-col md:flex-row items-start md:items-center justify-between group stagger-up">
-            <div class="bento-content max-w-sm">
-              <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
-                <i data-lucide="mail" class="w-6 h-6"></i>
-              </div>
-              <h3 class="text-2xl font-bold mb-2">Automation & Email</h3>
-              <p class="text-neutral-400 font-medium">Complex flows that nurture leads into loyal brand advocates.</p>
-            </div>
-            <div class="bento-content hidden md:block w-32 h-32 rounded-full border border-white/10 border-dashed animate-spin-slow flex-shrink-0 relative mt-6 md:mt-0">
-               <div class="absolute inset-2 bg-emerald-500/10 rounded-full blur-md"></div>
-            </div>
-          </div>
-
-          <!-- Small Card -->
-          <div class="bento-card bg-[#1264a3] border border-[#1879A9] rounded-[32px] p-8 flex flex-col group stagger-up justify-center items-center text-center">
-            <div class="bento-content">
-              <h3 class="text-3xl font-bold mb-2 text-white">All Services</h3>
-              <a href="#" class="text-white/80 hover:text-white font-bold tracking-wide flex items-center justify-center gap-2 mt-4">
-                View Full Catalog <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </a>
+            <div class="w-[120px] md:w-[160px] shrink-0 relative z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
+              <svg viewBox="0 0 160 160" class="w-full h-auto"><defs><linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient></defs><circle cx="70" cy="80" r="45" fill="none" stroke="url(#purpleBlue)" stroke-width="1.5" opacity="0.8"/><circle cx="90" cy="80" r="45" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/><path d="M 50 50 Q 80 110 110 50" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.6"/><circle cx="80" cy="80" r="15" fill="#0a0a0a" stroke="url(#purpleBlue)" stroke-width="1.5"/></svg>
             </div>
           </div>
 
@@ -969,6 +985,36 @@
 
     // Duplicate review tracks for seamless infinite loop
     document.querySelectorAll('.review-track').forEach(function(t) { t.innerHTML += t.innerHTML; });
+
+    // --- Services Slider Logic ---
+    (function() {
+      var slider = document.getElementById('nm-slider');
+      var prevBtn = document.getElementById('nm-prev-btn');
+      var nextBtn = document.getElementById('nm-next-btn');
+      if (!slider || !prevBtn || !nextBtn) return;
+
+      var getScroll = function() {
+        var card = slider.querySelector('.nm-card');
+        return card ? card.offsetWidth + 24 : 600;
+      };
+      var updateBtns = function() {
+        prevBtn.disabled = slider.scrollLeft <= 10;
+        nextBtn.disabled = slider.scrollLeft >= slider.scrollWidth - slider.clientWidth - 10;
+      };
+      prevBtn.addEventListener('click', function() { slider.scrollBy({ left: -getScroll(), behavior: 'smooth' }); });
+      nextBtn.addEventListener('click', function() { slider.scrollBy({ left: getScroll(), behavior: 'smooth' }); });
+      slider.addEventListener('scroll', updateBtns);
+
+      // Drag to scroll
+      var isDown = false, startX, scrollLeft;
+      slider.addEventListener('mousedown', function(e) { isDown = true; slider.style.scrollBehavior = 'auto'; startX = e.pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft; });
+      slider.addEventListener('mouseleave', function() { if (!isDown) return; isDown = false; slider.style.scrollBehavior = 'smooth'; });
+      slider.addEventListener('mouseup', function() { if (!isDown) return; isDown = false; slider.style.scrollBehavior = 'smooth'; });
+      slider.addEventListener('mousemove', function(e) { if (!isDown) return; e.preventDefault(); var x = e.pageX - slider.offsetLeft; slider.scrollLeft = scrollLeft - (x - startX) * 2; });
+
+      setTimeout(updateBtns, 100);
+      if (window.innerWidth >= 768) setTimeout(function() { slider.scrollTo({ left: getScroll(), behavior: 'auto' }); }, 100);
+    })();
 
     // Start Sequence
     window.addEventListener('load', initHeroAnimation);
