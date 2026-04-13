@@ -411,40 +411,60 @@
               </div>
 
               <!-- GA-style bar chart -->
-              <div class="h-[140px] flex items-end gap-2 px-1">
+              <div id="ga-chart" class="h-[140px] flex items-end gap-2 px-1">
                 <div class="flex-1 flex gap-[3px] items-end">
-                  <div class="flex-1 rounded-t-sm bg-[#1879A9]/80 h-[40px]"></div>
-                  <div class="flex-1 rounded-t-sm bg-[#4fc3f7]/40 h-[24px]"></div>
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#1879A9]/80" data-h="40"></div>
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#4fc3f7]/40" data-h="24"></div>
                 </div>
                 <div class="flex-1 flex gap-[3px] items-end">
-                  <div class="flex-1 rounded-t-sm bg-[#1879A9]/80 h-[60px]"></div>
-                  <div class="flex-1 rounded-t-sm bg-[#4fc3f7]/40 h-[36px]"></div>
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#1879A9]/80" data-h="60"></div>
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#4fc3f7]/40" data-h="36"></div>
                 </div>
                 <div class="flex-1 flex gap-[3px] items-end">
-                  <div class="flex-1 rounded-t-sm bg-[#1879A9]/80 h-[48px]"></div>
-                  <div class="flex-1 rounded-t-sm bg-[#4fc3f7]/40 h-[30px]"></div>
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#1879A9]/80" data-h="48"></div>
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#4fc3f7]/40" data-h="30"></div>
                 </div>
                 <div class="flex-1 flex gap-[3px] items-end">
-                  <div class="flex-1 rounded-t-sm bg-[#1879A9]/80 h-[85px]"></div>
-                  <div class="flex-1 rounded-t-sm bg-[#4fc3f7]/40 h-[50px]"></div>
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#1879A9]/80" data-h="85"></div>
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#4fc3f7]/40" data-h="50"></div>
                 </div>
                 <div class="flex-1 flex gap-[3px] items-end">
-                  <div class="flex-1 rounded-t-sm bg-[#1879A9]/80 h-[70px]"></div>
-                  <div class="flex-1 rounded-t-sm bg-[#4fc3f7]/40 h-[42px]"></div>
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#1879A9]/80" data-h="70"></div>
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#4fc3f7]/40" data-h="42"></div>
                 </div>
                 <div class="flex-1 flex gap-[3px] items-end">
-                  <div class="flex-1 rounded-t-sm bg-[#1879A9] h-[110px]"></div>
-                  <div class="flex-1 rounded-t-sm bg-[#4fc3f7]/60 h-[65px]"></div>
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#1879A9]" data-h="110"></div>
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#4fc3f7]/60" data-h="65"></div>
                 </div>
                 <div class="flex-1 flex gap-[3px] items-end">
-                  <div class="flex-1 rounded-t-sm bg-[#1879A9] h-[130px]"></div>
-                  <div class="flex-1 rounded-t-sm bg-[#4fc3f7]/60 h-[78px]"></div>
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#1879A9]" data-h="130"></div>
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#4fc3f7]/60" data-h="78"></div>
+                </div>
+                <div class="flex-1 flex gap-[3px] items-end">
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#1879A9] h-[95px]" data-h="95"></div>
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#4fc3f7]/60" data-h="55"></div>
+                </div>
+                <div class="flex-1 flex gap-[3px] items-end">
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#1879A9]" data-h="120"></div>
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#4fc3f7]/60" data-h="70"></div>
+                </div>
+                <div class="flex-1 flex gap-[3px] items-end">
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#1879A9]" data-h="100"></div>
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#4fc3f7]/60" data-h="58"></div>
+                </div>
+                <div class="flex-1 flex gap-[3px] items-end">
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#1879A9]" data-h="115"></div>
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#4fc3f7]/60" data-h="68"></div>
+                </div>
+                <div class="flex-1 flex gap-[3px] items-end">
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#1879A9]" data-h="140"></div>
+                  <div class="ga-bar flex-1 rounded-t-sm bg-[#4fc3f7]/60" data-h="85"></div>
                 </div>
               </div>
 
               <!-- Bottom labels -->
               <div class="flex justify-between text-[9px] text-neutral-600 font-bold uppercase tracking-wider mt-2 px-1">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
               </div>
 
               <!-- Legend -->
@@ -1113,6 +1133,29 @@
       });
     });
 
+
+    // --- GA Bar Chart Animation on Scroll ---
+    var gaChart = document.getElementById('ga-chart');
+    if (gaChart) {
+      var gaBars = gaChart.querySelectorAll('.ga-bar');
+      // Start all bars at height 0
+      gaBars.forEach(function(bar) { bar.style.height = '0px'; });
+
+      ScrollTrigger.create({
+        trigger: gaChart,
+        start: 'top 85%',
+        onEnter: function() {
+          gaBars.forEach(function(bar, i) {
+            gsap.to(bar, {
+              height: bar.getAttribute('data-h') + 'px',
+              duration: 1.2,
+              delay: i * 0.06,
+              ease: 'power4.out'
+            });
+          });
+        }
+      });
+    }
 
     // --- Floating Dashboard Element ---
     gsap.to("#floating-card", { y: -20, duration: 2.5, repeat: -1, yoyo: true, ease: "sine.inOut" });
