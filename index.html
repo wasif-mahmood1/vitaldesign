@@ -167,7 +167,7 @@
 
     /* FAQ Accordion */
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1); }
-    .faq-item.active .faq-answer { max-height: 300px; }
+    .faq-item.active .faq-answer { max-height: 500px; }
     .faq-item.active .faq-icon { transform: rotate(45deg); }
     .faq-item.active { border-color: rgba(24,121,169,0.3) !important; }
 
@@ -233,7 +233,7 @@
 
   <main>
     <!-- Linear/Raycast Style Hero Section -->
-    <section class="relative flex items-center pt-24 md:pt-36 pb-10 md:pb-16 overflow-hidden z-10">
+    <section class="relative flex items-center pt-24 md:pt-32 pb-8 md:pb-12 overflow-hidden z-10">
       <div class="container mx-auto px-6 md:px-12 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         
         <!-- Left Side (60%) -->
@@ -345,20 +345,20 @@
     </section>
 
     <!-- Infinite Scroll Logos -->
-    <div class="w-full overflow-hidden border-y border-white/5 py-8 bg-[#0a0a0a]/50 backdrop-blur-md relative z-10">
+    <div class="w-full overflow-hidden border-y border-white/5 py-5 bg-[#0a0a0a]/50 backdrop-blur-md relative z-10">
       <div class="flex w-max animate-marquee">
         <!-- Replicated for smooth infinite loop -->
         <div class="flex gap-20 px-10 items-center opacity-40">
-          <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Aura Systems</h3>
-          <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Nexus Dynamics</h3>
+          <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Synergy Creation</h3>
+          <h3 class="text-xl font-bold tracking-[0.2em] uppercase">LANSA</h3>
           <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Lumina Tech</h3>
           <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Vertex Global</h3>
           <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Zenith Labs</h3>
           <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Quantum Flow</h3>
         </div>
         <div class="flex gap-20 px-10 items-center opacity-40">
-          <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Aura Systems</h3>
-          <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Nexus Dynamics</h3>
+          <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Synergy Creation</h3>
+          <h3 class="text-xl font-bold tracking-[0.2em] uppercase">LANSA</h3>
           <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Lumina Tech</h3>
           <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Vertex Global</h3>
           <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Zenith Labs</h3>
@@ -367,11 +367,124 @@
       </div>
     </div>
 
+    <!-- Services Slider Section -->
+    <section id="services" class="bg-[#080808] py-10 md:py-16 relative overflow-hidden border-t border-white/5">
+      <div class="absolute bottom-[10%] left-[-10%] w-[400px] h-[400px] bg-[#1879A9] rounded-full blur-[150px] opacity-[0.07] pointer-events-none"></div>
+      <div class="container mx-auto px-6 md:px-12 mb-6 md:mb-10 stagger-up relative z-10">
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">
+          Every Marketing Service <br/>
+          <span class="text-neutral-500">All Under <span class="hero-glow-text" style="color: #4fc3f7;">One Roof</span></span>
+        </h2>
+        <p class="text-lg text-neutral-400 mb-10 leading-relaxed font-light max-w-2xl">
+          From development and design to SEO, PPC, and automation — we deliver comprehensive digital solutions that drive traffic, generate leads, and maximize your revenue.
+        </p>
+      </div>
+
+      <div class="relative container mx-auto px-6 md:px-12">
+        <button id="nm-prev-btn" class="absolute left-8 md:left-14 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full border border-white/10 flex items-center justify-center bg-[#0a0a0a] backdrop-blur-md hover:bg-white/5 hover:border-white/20 transition-all text-white disabled:opacity-0 disabled:pointer-events-none hidden md:flex"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg></button>
+        <button id="nm-next-btn" class="absolute right-8 md:right-14 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full border border-white/10 flex items-center justify-center bg-[#0a0a0a] backdrop-blur-md hover:bg-white/5 hover:border-white/20 transition-all text-white disabled:opacity-0 disabled:pointer-events-none hidden md:flex"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg></button>
+
+        <div id="nm-slider" class="flex overflow-x-auto snap-x snap-mandatory gap-6 w-full nm-hide-scrollbar items-stretch pb-10" style="scroll-behavior: smooth;">
+
+          <div class="nm-card w-[85vw] md:w-[650px] shrink-0 snap-center bg-[#0a0a0a] rounded-[24px] border border-white/10 p-8 md:p-10 flex flex-col-reverse md:flex-row gap-10 items-center transition-all duration-300 hover:scale-[1.03] hover:border-white/20 hover:shadow-[0_0_50px_rgba(255,255,255,0.05)] relative overflow-hidden group cursor-grab active:cursor-grabbing select-none">
+            <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
+            <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
+              <h3 class="text-[32px] md:text-[36px] font-bold text-[#4fc3f7] mb-4">Web Development</h3>
+              <p class="text-[#a1a1aa] mb-8 leading-relaxed text-[15px] md:text-[16px]">Build responsive, high-performing websites that provide seamless user experiences and drive business success using modern frontend technologies, powerful frameworks, and flexible CMS platforms.</p>
+              <div class="flex flex-wrap gap-2.5">
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Frontend Development</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">React JS & PHP</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">WordPress</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Shopify</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">CMS Solutions</span>
+              </div>
+            </div>
+            <div class="w-[120px] md:w-[160px] shrink-0 relative z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
+              <svg viewBox="0 0 160 160" class="w-full h-auto drop-shadow-2xl"><defs><linearGradient id="blueCyan" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#2dd4bf"/></linearGradient></defs><polyline points="45,55 25,80 45,105" fill="none" stroke="url(#blueCyan)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><polyline points="115,55 135,80 115,105" fill="none" stroke="url(#blueCyan)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><line x1="95" y1="45" x2="65" y2="115" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/></svg>
+            </div>
+          </div>
+
+          <div class="nm-card w-[85vw] md:w-[650px] shrink-0 snap-center bg-[#0a0a0a] rounded-[24px] border border-white/10 p-8 md:p-10 flex flex-col-reverse md:flex-row gap-10 items-center transition-all duration-300 hover:scale-[1.03] hover:border-white/20 hover:shadow-[0_0_50px_rgba(255,255,255,0.05)] relative overflow-hidden group cursor-grab active:cursor-grabbing select-none">
+            <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
+            <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
+              <h3 class="text-[32px] md:text-[36px] font-bold text-[#4fc3f7] mb-4">Digital Marketing</h3>
+              <p class="text-[#a1a1aa] mb-8 leading-relaxed text-[15px] md:text-[16px]">Boost your online presence and drive sales with tailored marketing strategies from SEO and PPC to social media, email campaigns, and data-backed performance monitoring.</p>
+              <div class="flex flex-wrap gap-2.5">
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">SEO</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">PPC Advertising</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Social Media Marketing</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Email Marketing</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Content Marketing</span>
+              </div>
+            </div>
+            <div class="w-[120px] md:w-[160px] shrink-0 relative z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
+              <svg viewBox="0 0 160 160" class="w-full h-auto drop-shadow-2xl"><defs><linearGradient id="pinkPurple" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#a855f7"/></linearGradient></defs><circle cx="80" cy="80" r="50" fill="none" stroke="url(#pinkPurple)" stroke-width="1.5" opacity="0.8"/><ellipse cx="80" cy="80" rx="20" ry="50" fill="none" stroke="url(#pinkPurple)" stroke-width="1.5" opacity="0.5"/><line x1="30" y1="80" x2="130" y2="80" stroke="rgba(255,255,255,0.25)" stroke-width="1"/><ellipse cx="80" cy="60" rx="45" ry="12" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/><ellipse cx="80" cy="100" rx="45" ry="12" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/><circle cx="80" cy="30" r="4" fill="#fff" opacity="0.7"/><circle cx="55" cy="55" r="3.5" fill="url(#pinkPurple)" opacity="0.8"/><circle cx="110" cy="65" r="3" fill="#fff" opacity="0.5"/><circle cx="100" cy="100" r="3.5" fill="url(#pinkPurple)" opacity="0.7"/><circle cx="55" cy="105" r="3" fill="#fff" opacity="0.5"/><circle cx="80" cy="130" r="4" fill="#fff" opacity="0.7"/><line x1="80" y1="30" x2="55" y2="55" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><line x1="55" y1="55" x2="80" y2="80" stroke="rgba(255,255,255,0.2)" stroke-width="1"/><line x1="110" y1="65" x2="100" y2="100" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><line x1="100" y1="100" x2="55" y2="105" stroke="rgba(255,255,255,0.2)" stroke-width="1"/><line x1="55" y1="105" x2="80" y2="130" stroke="rgba(255,255,255,0.3)" stroke-width="1"/></svg>
+            </div>
+          </div>
+
+          <div class="nm-card w-[85vw] md:w-[650px] shrink-0 snap-center bg-[#0a0a0a] rounded-[24px] border border-white/10 p-8 md:p-10 flex flex-col-reverse md:flex-row gap-10 items-center transition-all duration-300 hover:scale-[1.03] hover:border-white/20 hover:shadow-[0_0_50px_rgba(255,255,255,0.05)] relative overflow-hidden group cursor-grab active:cursor-grabbing select-none">
+            <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
+            <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
+              <h3 class="text-[32px] md:text-[36px] font-bold text-[#4fc3f7] mb-4">Design</h3>
+              <p class="text-[#a1a1aa] mb-8 leading-relaxed text-[15px] md:text-[16px]">We craft compelling visuals that capture attention and communicate your brand's story from memorable logos and brand identities to intuitive UI/UX and impactful print materials.</p>
+              <div class="flex flex-wrap gap-2.5">
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Branding</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Print Design</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">UI/UX Design</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Brand Guidelines</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Logo Design</span>
+              </div>
+            </div>
+            <div class="w-[120px] md:w-[160px] shrink-0 relative z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
+              <svg viewBox="0 0 160 160" class="w-full h-auto drop-shadow-2xl"><defs><linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient></defs><path d="M100 30 L55 75 L55 105 L85 105 L130 60 Z" fill="none" stroke="url(#purpleBlue)" stroke-width="2" stroke-linejoin="round" opacity="0.8"/><line x1="55" y1="75" x2="85" y2="105" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/><line x1="75" y1="50" x2="110" y2="85" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/><circle cx="115" cy="45" r="6" fill="url(#purpleBlue)" opacity="0.6"/><line x1="40" y1="125" x2="120" y2="125" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/></svg>
+            </div>
+          </div>
+
+          <div class="nm-card w-[85vw] md:w-[650px] shrink-0 snap-center bg-[#0a0a0a] rounded-[24px] border border-white/10 p-8 md:p-10 flex flex-col-reverse md:flex-row gap-10 items-center transition-all duration-300 hover:scale-[1.03] hover:border-white/20 hover:shadow-[0_0_50px_rgba(255,255,255,0.05)] relative overflow-hidden group cursor-grab active:cursor-grabbing select-none">
+            <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
+            <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
+              <h3 class="text-[32px] md:text-[36px] font-bold text-[#4fc3f7] mb-4">SEO</h3>
+              <p class="text-[#a1a1aa] mb-8 leading-relaxed text-[15px] md:text-[16px]">Unlock organic growth and improve search rankings with data-driven SEO techniques covering on-page optimization, off-page authority building, and technical audits to maximize your visibility.</p>
+              <div class="flex flex-wrap gap-2.5">
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">On-Page SEO</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Off-Page SEO</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Technical SEO</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Site Audit</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Keyword Research</span>
+              </div>
+            </div>
+            <div class="w-[120px] md:w-[160px] shrink-0 relative z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
+              <svg viewBox="0 0 160 160" class="w-full h-auto drop-shadow-2xl"><defs><linearGradient id="greenTeal" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#14b8a6"/></linearGradient></defs><circle cx="70" cy="70" r="35" fill="none" stroke="url(#greenTeal)" stroke-width="1.5" opacity="0.8"/><line x1="95" y1="95" x2="125" y2="125" stroke="url(#greenTeal)" stroke-width="3" stroke-linecap="round" opacity="0.8"/><polyline points="55,80 62,72 70,76 78,60 86,65" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/><line x1="55" y1="85" x2="86" y2="85" stroke="rgba(255,255,255,0.2)" stroke-width="1"/></svg>
+            </div>
+          </div>
+
+          <div class="nm-card w-[85vw] md:w-[650px] shrink-0 snap-center bg-[#0a0a0a] rounded-[24px] border border-white/10 p-8 md:p-10 flex flex-col-reverse md:flex-row gap-10 items-center transition-all duration-300 hover:scale-[1.03] hover:border-white/20 hover:shadow-[0_0_50px_rgba(255,255,255,0.05)] relative overflow-hidden group cursor-grab active:cursor-grabbing select-none">
+            <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
+            <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
+              <h3 class="text-[32px] md:text-[36px] font-bold text-[#4fc3f7] mb-4">App Development</h3>
+              <p class="text-[#a1a1aa] mb-8 leading-relaxed text-[15px] md:text-[16px]">Elevate your brand with high-performance mobile apps built for the future from custom iOS & Android development and intuitive UI/UX design to cross-platform solutions, rigorous testing, and ongoing post-launch support.</p>
+              <div class="flex flex-wrap gap-2.5">
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Custom App Development</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">UI/UX Design</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Cross-Platform</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">iOS & Android</span>
+                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">App Testing & QA</span>
+              </div>
+            </div>
+            <div class="w-[120px] md:w-[160px] shrink-0 relative z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
+              <svg viewBox="0 0 160 160" class="w-full h-auto drop-shadow-2xl"><defs><linearGradient id="orangeRed" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#ef4444"/></linearGradient></defs><rect x="55" y="25" width="50" height="110" rx="10" fill="none" stroke="url(#orangeRed)" stroke-width="1.5" opacity="0.8"/><line x1="55" y1="45" x2="105" y2="45" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><line x1="55" y1="115" x2="105" y2="115" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><circle cx="80" cy="125" r="4" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.5"/><rect x="65" y="55" width="30" height="20" rx="3" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/><rect x="65" y="82" width="14" height="14" rx="3" fill="none" stroke="url(#orangeRed)" stroke-width="1" opacity="0.6"/><rect x="83" y="82" width="14" height="14" rx="3" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/></svg>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- About Section -->
-    <section class="py-12 md:py-24 relative z-10 overflow-hidden" id="about">
+    <section class="py-10 md:py-16 relative z-10 overflow-hidden border-t border-white/5" id="about">
       <div class="absolute top-[20%] right-[-15%] w-[500px] h-[500px] bg-[#1879A9] rounded-full blur-[160px] opacity-[0.08] pointer-events-none"></div>
       <div class="container mx-auto px-6 md:px-12 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
           <div class="stagger-up">
             <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">
               Vital Web Solution <br/>
@@ -496,127 +609,15 @@
       </div>
     </section>
 
-    <!-- Services Slider Section -->
-    <section id="services" class="bg-[#080808] py-12 md:py-24 relative overflow-hidden border-t border-white/5">
-      <div class="absolute bottom-[10%] left-[-10%] w-[400px] h-[400px] bg-[#1879A9] rounded-full blur-[150px] opacity-[0.07] pointer-events-none"></div>
-      <div class="container mx-auto px-6 md:px-12 mb-8 md:mb-14 stagger-up relative z-10">
-        <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">
-          Every Marketing Service <br/>
-          <span class="text-neutral-500">All Under <span class="hero-glow-text" style="color: #4fc3f7;">One Roof</span></span>
-        </h2>
-        <p class="text-lg text-neutral-400 mb-10 leading-relaxed font-light max-w-2xl">
-          From development and design to SEO, PPC, and automation — we deliver comprehensive digital solutions that drive traffic, generate leads, and maximize your revenue.
-        </p>
-      </div>
-
-      <div class="relative container mx-auto px-6 md:px-12">
-        <button id="nm-prev-btn" class="absolute left-8 md:left-14 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full border border-white/10 flex items-center justify-center bg-[#0a0a0a] backdrop-blur-md hover:bg-white/5 hover:border-white/20 transition-all text-white disabled:opacity-0 disabled:pointer-events-none hidden md:flex"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg></button>
-        <button id="nm-next-btn" class="absolute right-8 md:right-14 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full border border-white/10 flex items-center justify-center bg-[#0a0a0a] backdrop-blur-md hover:bg-white/5 hover:border-white/20 transition-all text-white disabled:opacity-0 disabled:pointer-events-none hidden md:flex"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg></button>
-
-        <div id="nm-slider" class="flex overflow-x-auto snap-x snap-mandatory gap-6 w-full nm-hide-scrollbar items-stretch pb-10" style="scroll-behavior: smooth;">
-
-          <div class="nm-card w-[85vw] md:w-[650px] shrink-0 snap-center bg-[#0a0a0a] rounded-[24px] border border-white/10 p-8 md:p-10 flex flex-col-reverse md:flex-row gap-10 items-center transition-all duration-300 hover:scale-[1.03] hover:border-white/20 hover:shadow-[0_0_50px_rgba(255,255,255,0.05)] relative overflow-hidden group cursor-grab active:cursor-grabbing select-none">
-            <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
-            <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
-              <h3 class="text-[32px] md:text-[36px] font-bold text-[#4fc3f7] mb-4">Development</h3>
-              <p class="text-[#a1a1aa] mb-8 leading-relaxed text-[15px] md:text-[16px]">Robust, scalable architectures and front-end experiences built on modern frameworks. We engineer platforms that convert.</p>
-              <div class="flex flex-wrap gap-2.5">
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Web Apps</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Headless Commerce</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">API Integrations</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Performance Tuning</span>
-              </div>
-            </div>
-            <div class="w-[120px] md:w-[160px] shrink-0 relative z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
-              <svg viewBox="0 0 160 160" class="w-full h-auto drop-shadow-2xl"><defs><linearGradient id="blueCyan" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#2dd4bf"/></linearGradient></defs><polygon points="80,30 115,50 115,90 80,110 45,90 45,50" fill="none" stroke="url(#blueCyan)" stroke-width="1.5" opacity="0.8"/><polygon points="80,50 100,60 100,80 80,90 60,80 60,60" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.4"/><circle cx="80" cy="70" r="4" fill="#fff"/><line x1="80" y1="30" x2="80" y2="50" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/><line x1="115" y1="90" x2="100" y2="80" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/><line x1="45" y1="90" x2="60" y2="80" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/></svg>
-            </div>
-          </div>
-
-          <div class="nm-card w-[85vw] md:w-[650px] shrink-0 snap-center bg-[#0a0a0a] rounded-[24px] border border-white/10 p-8 md:p-10 flex flex-col-reverse md:flex-row gap-10 items-center transition-all duration-300 hover:scale-[1.03] hover:border-white/20 hover:shadow-[0_0_50px_rgba(255,255,255,0.05)] relative overflow-hidden group cursor-grab active:cursor-grabbing select-none">
-            <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
-            <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
-              <h3 class="text-[32px] md:text-[36px] font-bold text-[#4fc3f7] mb-4">Digital</h3>
-              <p class="text-[#a1a1aa] mb-8 leading-relaxed text-[15px] md:text-[16px]">From paid media to SEO and content — we run data-backed digital campaigns that drive qualified traffic and turn attention into revenue.</p>
-              <div class="flex flex-wrap gap-2.5">
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">SEO & PPC</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Social Ads</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Email Flows</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Lead Generation</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Paid Scaling</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Traffic Growth</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Conversion Strategy</span>
-              </div>
-            </div>
-            <div class="w-[120px] md:w-[160px] shrink-0 relative z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
-              <svg viewBox="0 0 160 160" class="w-full h-auto drop-shadow-2xl"><defs><linearGradient id="pinkPurple" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#a855f7"/></linearGradient></defs><line x1="80" y1="80" x2="30" y2="40" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><line x1="80" y1="80" x2="130" y2="30" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><line x1="80" y1="80" x2="140" y2="90" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><circle cx="30" cy="40" r="9" fill="#0a0a0a" stroke="#fff" stroke-width="1.5"/><circle cx="130" cy="30" r="11" fill="#0a0a0a" stroke="url(#pinkPurple)" stroke-width="1.5"/><circle cx="140" cy="90" r="8" fill="#0a0a0a" stroke="#fff" stroke-width="1.5"/><circle cx="80" cy="80" r="20" fill="#0a0a0a" stroke="url(#pinkPurple)" stroke-width="1.5"/></svg>
-            </div>
-          </div>
-
-          <div class="nm-card w-[85vw] md:w-[650px] shrink-0 snap-center bg-[#0a0a0a] rounded-[24px] border border-white/10 p-8 md:p-10 flex flex-col-reverse md:flex-row gap-10 items-center transition-all duration-300 hover:scale-[1.03] hover:border-white/20 hover:shadow-[0_0_50px_rgba(255,255,255,0.05)] relative overflow-hidden group cursor-grab active:cursor-grabbing select-none">
-            <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
-            <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
-              <h3 class="text-[32px] md:text-[36px] font-bold text-[#4fc3f7] mb-4">Design</h3>
-              <p class="text-[#a1a1aa] mb-8 leading-relaxed text-[15px] md:text-[16px]">We create brand identities and digital interfaces that not only look stunning but drive conversions across all channels.</p>
-              <div class="flex flex-wrap gap-2.5">
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Brand Identity</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">UI/UX Design</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Social Creative</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Email Design</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Motion Graphics</span>
-              </div>
-            </div>
-            <div class="w-[120px] md:w-[160px] shrink-0 relative z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
-              <svg viewBox="0 0 160 160" class="w-full h-auto drop-shadow-2xl"><defs><linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient></defs><circle cx="70" cy="80" r="45" fill="none" stroke="url(#purpleBlue)" stroke-width="1.5" opacity="0.8"/><circle cx="90" cy="80" r="45" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/><path d="M 50 50 Q 80 110 110 50" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.6"/><circle cx="80" cy="80" r="15" fill="#0a0a0a" stroke="url(#purpleBlue)" stroke-width="1.5"/></svg>
-            </div>
-          </div>
-
-          <div class="nm-card w-[85vw] md:w-[650px] shrink-0 snap-center bg-[#0a0a0a] rounded-[24px] border border-white/10 p-8 md:p-10 flex flex-col-reverse md:flex-row gap-10 items-center transition-all duration-300 hover:scale-[1.03] hover:border-white/20 hover:shadow-[0_0_50px_rgba(255,255,255,0.05)] relative overflow-hidden group cursor-grab active:cursor-grabbing select-none">
-            <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
-            <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
-              <h3 class="text-[32px] md:text-[36px] font-bold text-[#4fc3f7] mb-4">SEO</h3>
-              <p class="text-[#a1a1aa] mb-8 leading-relaxed text-[15px] md:text-[16px]">Dominate search rankings with technical precision, high-authority backlinking, and content strategies built for Google & AI-driven search engines.</p>
-              <div class="flex flex-wrap gap-2.5">
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Technical SEO</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Link Building</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Content Strategy</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Local SEO</span>
-              </div>
-            </div>
-            <div class="w-[120px] md:w-[160px] shrink-0 relative z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
-              <svg viewBox="0 0 160 160" class="w-full h-auto drop-shadow-2xl"><defs><linearGradient id="greenTeal" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#14b8a6"/></linearGradient></defs><circle cx="80" cy="80" r="50" fill="none" stroke="url(#greenTeal)" stroke-width="1.5" opacity="0.8"/><path d="M60 80 L75 95 L105 65" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/></svg>
-            </div>
-          </div>
-
-          <div class="nm-card w-[85vw] md:w-[650px] shrink-0 snap-center bg-[#0a0a0a] rounded-[24px] border border-white/10 p-8 md:p-10 flex flex-col-reverse md:flex-row gap-10 items-center transition-all duration-300 hover:scale-[1.03] hover:border-white/20 hover:shadow-[0_0_50px_rgba(255,255,255,0.05)] relative overflow-hidden group cursor-grab active:cursor-grabbing select-none">
-            <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
-            <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
-              <h3 class="text-[32px] md:text-[36px] font-bold text-[#4fc3f7] mb-4">CRM Management</h3>
-              <p class="text-[#a1a1aa] mb-8 leading-relaxed text-[15px] md:text-[16px]">Intelligent CRM solutions that automate workflows, track leads, and maximize lifetime customer value.</p>
-              <div class="flex flex-wrap gap-2.5">
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">HubSpot</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Salesforce</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Pipeline Automation</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Lead Scoring</span>
-              </div>
-            </div>
-            <div class="w-[120px] md:w-[160px] shrink-0 relative z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
-              <svg viewBox="0 0 160 160" class="w-full h-auto drop-shadow-2xl"><defs><linearGradient id="orangeYellow" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#ef4444"/></linearGradient></defs><rect x="40" y="45" width="80" height="70" rx="12" fill="none" stroke="url(#orangeYellow)" stroke-width="1.5" opacity="0.8"/><circle cx="65" cy="70" r="8" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.5"/><circle cx="95" cy="70" r="8" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.5"/><line x1="73" y1="70" x2="87" y2="70" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/></svg>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
     <!-- Featured Works — Horizontal Auto-Scroll -->
-    <section id="work" class="py-12 md:py-24 relative z-10 border-t border-white/5 overflow-hidden">
-      <div class="container mx-auto px-6 md:px-12 mb-8 md:mb-14 stagger-up">
-        <h2 class="text-4xl md:text-5xl font-bold tracking-tight">Featured <span class="hero-glow-text" style="color: #4fc3f7;">Works</span></h2>
+    <section id="work" class="py-10 md:py-16 relative z-10 border-t border-white/5 overflow-hidden">
+      <div class="container mx-auto px-6 md:px-12 mb-6 md:mb-10 stagger-up">
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Featured <span class="hero-glow-text" style="color: #4fc3f7;">Works</span></h2>
+        <p class="text-lg text-neutral-400 leading-relaxed font-light max-w-2xl">We build websites, run campaigns, and craft designs that turn visitors into customers. Every project is custom-built around your goals and engineered to deliver results.</p>
       </div>
 
       <div class="container mx-auto px-6 md:px-12">
-        <div class="flex gap-6 overflow-x-auto nm-hide-scrollbar pb-4" id="works-track" style="scroll-behavior: smooth;">
+        <div class="flex gap-6 overflow-x-auto nm-hide-scrollbar pb-4" id="works-track">
           <!-- Project 1 -->
           <div class="group relative cursor-pointer overflow-hidden rounded-2xl w-[320px] md:w-[380px] h-[450px] shrink-0">
             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" alt="Nexus Dynamics" class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700">
@@ -675,48 +676,48 @@
 
 
     <!-- Reviews — 3-Column Vertical Auto-Scroll -->
-    <section class="py-12 md:py-24 relative z-10 overflow-hidden border-t border-white/5">
+    <section class="py-10 md:py-16 relative z-10 overflow-hidden border-t border-white/5">
       <div class="absolute top-[30%] right-[-10%] w-[450px] h-[450px] bg-[#1879A9] rounded-full blur-[160px] opacity-[0.06] pointer-events-none"></div>
       <div class="container mx-auto px-6 md:px-12 relative z-10">
-        <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-8 md:mb-14 stagger-up">Hear from our <span class="hero-glow-text" style="color: #4fc3f7;">Clients</span></h2>
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 md:mb-10 stagger-up">Hear from our <span class="hero-glow-text" style="color: #4fc3f7;">Clients</span></h2>
 
         <!-- Mobile: 3 CSS marquee rows — infinite horizontal scroll -->
         <div class="md:hidden flex flex-col gap-4 overflow-hidden stagger-up">
           <!-- Row 1 — right -->
           <div class="flex w-max review-marquee-right gap-4">
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Vital transformed our digital presence. Traffic up 400%."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">S</div><div><span class="text-white text-[11px] font-semibold">Sarah Jenkins</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"SEO took us from page 5 to page 1 in three months."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">M</div><div><span class="text-white text-[11px] font-semibold">Marcus Vance</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Felt like having an elite in-house team."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">D</div><div><span class="text-white text-[11px] font-semibold">David Kim</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Lead generation increased by 250%."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">E</div><div><span class="text-white text-[11px] font-semibold">Emily Torres</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. Exceptional service!"</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">B</div><div><span class="text-white text-[11px] font-semibold">Benjamin F</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">C</div><div><span class="text-white text-[11px] font-semibold">Chloe W</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">D</div><div><span class="text-white text-[11px] font-semibold">David M</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies are exceptional."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">M</div><div><span class="text-white text-[11px] font-semibold">Mark S</span></div></div></div>
             <!-- duplicate for seamless loop -->
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Vital transformed our digital presence. Traffic up 400%."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">S</div><div><span class="text-white text-[11px] font-semibold">Sarah Jenkins</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"SEO took us from page 5 to page 1 in three months."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">M</div><div><span class="text-white text-[11px] font-semibold">Marcus Vance</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Felt like having an elite in-house team."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">D</div><div><span class="text-white text-[11px] font-semibold">David Kim</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Lead generation increased by 250%."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">E</div><div><span class="text-white text-[11px] font-semibold">Emily Torres</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. Exceptional service!"</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">B</div><div><span class="text-white text-[11px] font-semibold">Benjamin F</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">C</div><div><span class="text-white text-[11px] font-semibold">Chloe W</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">D</div><div><span class="text-white text-[11px] font-semibold">David M</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies are exceptional."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">M</div><div><span class="text-white text-[11px] font-semibold">Mark S</span></div></div></div>
           </div>
           <!-- Row 2 — left -->
           <div class="flex w-max review-marquee-left gap-4">
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"They built a conversion engine. 687% more leads."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">E</div><div><span class="text-white text-[11px] font-semibold">Elena Rodriguez</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"E-commerce revenue doubled in 6 months."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">J</div><div><span class="text-white text-[11px] font-semibold">James Morton</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Most stunning website we've ever had."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">D</div><div><span class="text-white text-[11px] font-semibold">David Chen</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Truly end-to-end digital partner."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">R</div><div><span class="text-white text-[11px] font-semibold">Ryan Patel</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies are exceptional."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">M</div><div><span class="text-white text-[11px] font-semibold">Mark S</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. Exceptional service!"</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">B</div><div><span class="text-white text-[11px] font-semibold">Benjamin F</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">D</div><div><span class="text-white text-[11px] font-semibold">David M</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">C</div><div><span class="text-white text-[11px] font-semibold">Chloe W</span></div></div></div>
             <!-- duplicate -->
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"They built a conversion engine. 687% more leads."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">E</div><div><span class="text-white text-[11px] font-semibold">Elena Rodriguez</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"E-commerce revenue doubled in 6 months."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">J</div><div><span class="text-white text-[11px] font-semibold">James Morton</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Most stunning website we've ever had."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">D</div><div><span class="text-white text-[11px] font-semibold">David Chen</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Truly end-to-end digital partner."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">R</div><div><span class="text-white text-[11px] font-semibold">Ryan Patel</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies are exceptional."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">M</div><div><span class="text-white text-[11px] font-semibold">Mark S</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. Exceptional service!"</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">B</div><div><span class="text-white text-[11px] font-semibold">Benjamin F</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">D</div><div><span class="text-white text-[11px] font-semibold">David M</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">C</div><div><span class="text-white text-[11px] font-semibold">Chloe W</span></div></div></div>
           </div>
           <!-- Row 3 — right fast -->
           <div class="flex w-max review-marquee-right-fast gap-4">
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Stunning visuals crafted for our brand."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">A</div><div><span class="text-white text-[11px] font-semibold">Ava Richardson</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Online visibility soared after partnering."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">N</div><div><span class="text-white text-[11px] font-semibold">Nina Johansson</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Lightning fast app. Retention rates soared."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">T</div><div><span class="text-white text-[11px] font-semibold">Tom Bradley</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Digital marketing strategies that work."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">L</div><div><span class="text-white text-[11px] font-semibold">Lisa Chang</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">C</div><div><span class="text-white text-[11px] font-semibold">Chloe W</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies are exceptional."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">M</div><div><span class="text-white text-[11px] font-semibold">Mark S</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. Exceptional service!"</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">B</div><div><span class="text-white text-[11px] font-semibold">Benjamin F</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">D</div><div><span class="text-white text-[11px] font-semibold">David M</span></div></div></div>
             <!-- duplicate -->
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Stunning visuals crafted for our brand."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">A</div><div><span class="text-white text-[11px] font-semibold">Ava Richardson</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Online visibility soared after partnering."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">N</div><div><span class="text-white text-[11px] font-semibold">Nina Johansson</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Lightning fast app. Retention rates soared."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">T</div><div><span class="text-white text-[11px] font-semibold">Tom Bradley</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[260px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Digital marketing strategies that work."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">L</div><div><span class="text-white text-[11px] font-semibold">Lisa Chang</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">C</div><div><span class="text-white text-[11px] font-semibold">Chloe W</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies are exceptional."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">M</div><div><span class="text-white text-[11px] font-semibold">Mark S</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. Exceptional service!"</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">B</div><div><span class="text-white text-[11px] font-semibold">Benjamin F</span></div></div></div>
+            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">D</div><div><span class="text-white text-[11px] font-semibold">David M</span></div></div></div>
           </div>
         </div>
 
@@ -730,30 +731,30 @@
             <!-- Col 1 — up -->
             <div class="review-col" data-dir="up">
               <div class="review-track">
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Vital completely transformed our digital presence. Within 3 months, our organic traffic skyrocketed by 400%."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">S</div><div><span class="text-white text-sm font-semibold block">Sarah Jenkins</span><span class="text-neutral-500 text-xs">CMO, Nexus</span></div></div></div>
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Their SEO strategy took us from page 5 to page 1 in under three months. Traffic growth has been phenomenal."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">M</div><div><span class="text-white text-sm font-semibold block">Marcus Vance</span><span class="text-neutral-500 text-xs">Founder, Nexus FinTech</span></div></div></div>
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Working with Vital felt like having an elite in-house team. They understood our vision and executed flawlessly."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">D</div><div><span class="text-white text-sm font-semibold block">David Kim</span><span class="text-neutral-500 text-xs">CEO, Orbitra Labs</span></div></div></div>
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"The redesign increased our lead generation by 250%. Vital's attention to detail is unmatched."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">E</div><div><span class="text-white text-sm font-semibold block">Emily Torres</span><span class="text-neutral-500 text-xs">VP Marketing, Solace</span></div></div></div>
+                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. They have a knack for crafting customized campaigns that connect with the target audience, driving engagement, and conversions. Exceptional service!"</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">B</div><div><span class="text-white text-sm font-semibold block">Benjamin F</span></div></div></div>
+                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled, resulting in engaging and iconic designs that have elevated our identity in the market."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">C</div><div><span class="text-white text-sm font-semibold block">Chloe W</span></div></div></div>
+                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality, ensuring an enhanced user experience. Their professionalism and dedication to meeting client needs are notable."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">D</div><div><span class="text-white text-sm font-semibold block">David M</span></div></div></div>
+                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies, professionalism, and depth of knowledge are exceptional. We experienced a significant boost in traffic and rankings. Stellar service!"</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">M</div><div><span class="text-white text-sm font-semibold block">Mark S</span></div></div></div>
               </div>
             </div>
 
             <!-- Col 2 — down -->
             <div class="review-col" data-dir="down">
               <div class="review-track">
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Our e-commerce revenue doubled within 6 months of the new platform launch. Performance optimization is incredible."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">J</div><div><span class="text-white text-sm font-semibold block">James Morton</span><span class="text-neutral-500 text-xs">Founder, ThreadCraft</span></div></div></div>
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"The most engineered and stunning website we've ever had. Their attention to detail in motion and UI is unmatched."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">D</div><div><span class="text-white text-sm font-semibold block">David Chen</span><span class="text-neutral-500 text-xs">Founder, Lumina</span></div></div></div>
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"From branding to full-stack development, they handled everything. A truly end-to-end digital partner."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">R</div><div><span class="text-white text-sm font-semibold block">Ryan Patel</span><span class="text-neutral-500 text-xs">CTO, Verge Systems</span></div></div></div>
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Not just a pretty website. They built a conversion engine. We saw a 687% increase in lead generation."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">E</div><div><span class="text-white text-sm font-semibold block">Elena Rodriguez</span><span class="text-neutral-500 text-xs">VP Marketing, Vertex</span></div></div></div>
+                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality, ensuring an enhanced user experience. Their professionalism and dedication to meeting client needs are notable."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">D</div><div><span class="text-white text-sm font-semibold block">David M</span></div></div></div>
+                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies, professionalism, and depth of knowledge are exceptional. We experienced a significant boost in traffic and rankings. Stellar service!"</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">M</div><div><span class="text-white text-sm font-semibold block">Mark S</span></div></div></div>
+                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. They have a knack for crafting customized campaigns that connect with the target audience, driving engagement, and conversions. Exceptional service!"</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">B</div><div><span class="text-white text-sm font-semibold block">Benjamin F</span></div></div></div>
+                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled, resulting in engaging and iconic designs that have elevated our identity in the market."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">C</div><div><span class="text-white text-sm font-semibold block">Chloe W</span></div></div></div>
               </div>
             </div>
 
-            <!-- Col 3 — up (hidden mobile) -->
+            <!-- Col 3 — up -->
             <div class="review-col" data-dir="up">
               <div class="review-track">
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Vital Web Solution crafted stunning visuals for our brand. Their creativity was unparalleled."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">A</div><div><span class="text-white text-sm font-semibold block">Ava Richardson</span><span class="text-neutral-500 text-xs">Creative Dir, Luma</span></div></div></div>
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Since partnering with Vital, our online visibility soared. Their tailored approach made all the difference."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">N</div><div><span class="text-white text-sm font-semibold block">Nina Johansson</span><span class="text-neutral-500 text-xs">COO, Nordic Trade</span></div></div></div>
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"The app they built for us is lightning fast. Users love it and our retention rates have never been higher."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">T</div><div><span class="text-white text-sm font-semibold block">Tom Bradley</span><span class="text-neutral-500 text-xs">Product Lead, FlowAI</span></div></div></div>
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Our online presence skyrocketed thanks to Vital's innovative digital marketing strategies."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">L</div><div><span class="text-white text-sm font-semibold block">Lisa Chang</span><span class="text-neutral-500 text-xs">Director, Apex Media</span></div></div></div>
+                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies, professionalism, and depth of knowledge are exceptional. We experienced a significant boost in traffic and rankings. Stellar service!"</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">M</div><div><span class="text-white text-sm font-semibold block">Mark S</span></div></div></div>
+                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. They have a knack for crafting customized campaigns that connect with the target audience, driving engagement, and conversions. Exceptional service!"</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">B</div><div><span class="text-white text-sm font-semibold block">Benjamin F</span></div></div></div>
+                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled, resulting in engaging and iconic designs that have elevated our identity in the market."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">C</div><div><span class="text-white text-sm font-semibold block">Chloe W</span></div></div></div>
+                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality, ensuring an enhanced user experience. Their professionalism and dedication to meeting client needs are notable."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">D</div><div><span class="text-white text-sm font-semibold block">David M</span></div></div></div>
               </div>
             </div>
 
@@ -763,7 +764,7 @@
     </section>
 
     <!-- FAQ Section — 2 Column Layout -->
-    <section class="py-12 md:py-24 relative z-10 border-t border-white/5 overflow-hidden" id="faq">
+    <section class="py-10 md:py-16 relative z-10 border-t border-white/5 overflow-hidden" id="faq">
       <div class="absolute bottom-[20%] left-[-10%] w-[400px] h-[400px] bg-[#1879A9] rounded-full blur-[150px] opacity-[0.06] pointer-events-none"></div>
       <div class="container mx-auto px-6 md:px-12 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -778,50 +779,66 @@
           <div class="flex flex-col gap-3 stagger-up">
             <div class="faq-item border border-white/10 bg-white/[0.02] rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20">
               <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left">
-                <span class="text-[15px] font-bold pr-6">What services do you offer?</span>
+                <span class="text-[15px] font-bold pr-6">What services does Vital Web Solution offer?</span>
                 <svg class="faq-icon w-5 h-5 text-neutral-500 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"></path></svg>
               </button>
-              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">We provide comprehensive digital solutions including SEO, web design, development, social media, email marketing, and PPC campaigns — all under one roof.</div></div>
+              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">We handle web development, SEO, digital marketing, mobile app development, and graphic design — everything from building your website and ranking it on Google, to running paid ads, managing social media, and creating your brand identity. One agency, full scope.</div></div>
             </div>
 
             <div class="faq-item border border-white/10 bg-white/[0.02] rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20">
               <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left">
-                <span class="text-[15px] font-bold pr-6">How long does a typical project take?</span>
+                <span class="text-[15px] font-bold pr-6">How long does it take to complete a project?</span>
                 <svg class="faq-icon w-5 h-5 text-neutral-500 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"></path></svg>
               </button>
-              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">Most web projects take 4-8 weeks. SEO results typically appear within 3-6 months. We set clear milestones and provide transparent reporting throughout.</div></div>
+              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">Websites typically take 4 to 8 weeks. Mobile apps run 2 to 6 months depending on complexity. SEO starts showing movement in a few weeks, with real traction at 3 to 6 months. PPC and social campaigns can go live within days. We give you a clear timeline before any work starts.</div></div>
             </div>
 
             <div class="faq-item border border-white/10 bg-white/[0.02] rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20">
               <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left">
-                <span class="text-[15px] font-bold pr-6">Do you provide ongoing support?</span>
+                <span class="text-[15px] font-bold pr-6">Will my website and app work on mobile devices?</span>
                 <svg class="faq-icon w-5 h-5 text-neutral-500 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"></path></svg>
               </button>
-              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">Yes. We offer retainer packages for ongoing maintenance, optimization, content updates, and performance monitoring to keep your site at peak performance.</div></div>
+              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">Yes. Every website and app we build is fully responsive, tested across desktops, tablets, and smartphones. Mobile performance isn't an afterthought — it's built in from day one.</div></div>
             </div>
 
             <div class="faq-item border border-white/10 bg-white/[0.02] rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20">
               <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left">
-                <span class="text-[15px] font-bold pr-6">What tech stack do you use?</span>
+                <span class="text-[15px] font-bold pr-6">What does your digital marketing service actually include?</span>
                 <svg class="faq-icon w-5 h-5 text-neutral-500 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"></path></svg>
               </button>
-              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">We work with React, Next.js, WordPress, Shopify, Tailwind CSS, and headless CMS platforms. We choose the best stack for your specific needs.</div></div>
+              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">We build and manage paid ad campaigns (Google Ads, Meta), run SEO, handle email marketing, and produce social media content. We start by mapping your goals and audience, then pick the channels that make sense for your business rather than running everything at once.</div></div>
             </div>
 
             <div class="faq-item border border-white/10 bg-white/[0.02] rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20">
               <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left">
-                <span class="text-[15px] font-bold pr-6">Can you help with SEO after launch?</span>
+                <span class="text-[15px] font-bold pr-6">How do you approach SEO, and can you guarantee rankings?</span>
                 <svg class="faq-icon w-5 h-5 text-neutral-500 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"></path></svg>
               </button>
-              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">Absolutely. Post-launch SEO is where the real growth happens. We handle technical SEO, content strategy, link building, and ongoing optimization.</div></div>
+              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">Our SEO work covers on-page optimization (content, keywords, meta tags), off-page signals (link building, authority), and technical SEO (site speed, mobile-friendliness, schema markup). No honest agency can guarantee a specific ranking — Google controls that. What we can promise is proven practices applied consistently, which builds traffic over time.</div></div>
             </div>
 
             <div class="faq-item border border-white/10 bg-white/[0.02] rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20">
               <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left">
-                <span class="text-[15px] font-bold pr-6">Do you offer custom web design or use templates?</span>
+                <span class="text-[15px] font-bold pr-6">Do you handle branding and design as well?</span>
                 <svg class="faq-icon w-5 h-5 text-neutral-500 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"></path></svg>
               </button>
-              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">Every project is 100% custom designed. No templates, no shortcuts. We craft bespoke digital experiences tailored to your brand and goals.</div></div>
+              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">Yes. We create logos, brand guidelines, and full visual identities, whether you're starting from scratch or rebranding. You get final files in JPEG, PNG, PDF, and vector formats (AI, EPS), plus revisions until the design matches your vision.</div></div>
+            </div>
+
+            <div class="faq-item border border-white/10 bg-white/[0.02] rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20">
+              <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left">
+                <span class="text-[15px] font-bold pr-6">What technologies do you work with?</span>
+                <svg class="faq-icon w-5 h-5 text-neutral-500 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"></path></svg>
+              </button>
+              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">On the web side: HTML, CSS, JavaScript, PHP, ReactJS, WordPress, Shopify, and Magento. For apps, we develop for both iOS and Android. For marketing, we work across Google Ads, Meta, and email platforms. If you have an existing tool or platform you're committed to, we'll work with it.</div></div>
+            </div>
+
+            <div class="faq-item border border-white/10 bg-white/[0.02] rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20">
+              <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left">
+                <span class="text-[15px] font-bold pr-6">Do you offer ongoing support after a project launches?</span>
+                <svg class="faq-icon w-5 h-5 text-neutral-500 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"></path></svg>
+              </button>
+              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">Yes. We provide maintenance and support for websites and apps — updates, security patches, performance fixes, and any improvements you need down the line. We can also continue managing your SEO and paid campaigns on a monthly basis.</div></div>
             </div>
           </div>
 
@@ -830,7 +847,7 @@
     </section>
 
     <!-- CTA Section with floating pills -->
-    <section class="py-12 md:py-24 relative z-10 overflow-hidden border-t border-white/5">
+    <section class="py-10 md:py-16 relative z-10 overflow-hidden border-t border-white/5">
       <div class="absolute top-[40%] left-[50%] -translate-x-1/2 w-[500px] h-[500px] bg-[#1879A9] rounded-full blur-[180px] opacity-[0.07] pointer-events-none"></div>
       <div class="max-w-3xl mx-auto px-6 md:px-12 relative z-10">
 
@@ -854,7 +871,7 @@
     </section>
   </main>
 
-  <footer class="bg-[#080808] py-12 md:py-24 border-t border-white/10 relative z-10">
+  <footer class="bg-[#080808] py-10 md:py-16 border-t border-white/10 relative z-10">
     <div class="container mx-auto px-6 md:px-12">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
         <div class="lg:col-span-1">
@@ -1064,15 +1081,10 @@
       var track = document.getElementById('works-track');
       if (!track) return;
       var speed = 0.5;
-      var paused = false;
-      track.addEventListener('mouseenter', function() { paused = true; });
-      track.addEventListener('mouseleave', function() { paused = false; });
       function autoScroll() {
-        if (!paused) {
-          track.scrollLeft += speed;
-          if (track.scrollLeft >= track.scrollWidth - track.clientWidth) {
-            track.scrollLeft = 0;
-          }
+        track.scrollLeft += speed;
+        if (track.scrollLeft >= track.scrollWidth - track.clientWidth) {
+          track.scrollLeft = 0;
         }
         requestAnimationFrame(autoScroll);
       }
