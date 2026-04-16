@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vital Web Solution - Digital Agency</title>
   
-  <!-- Fonts: Inter as fallback (Interphases Pro Variable if available locally) -->
+  <!-- Fonts: Poppins for headings, Inter for body -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
@@ -24,15 +24,94 @@
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
   <style>
+    /* ─── Design Tokens ─── */
+    :root {
+      --accent: #1879A9;
+      --accent-light: #4fc3f7;
+      --svc-web: #4fc3f7;
+      --svc-mktg: #f472b6;
+      --svc-design: #8b5cf6;
+      --svc-seo: #10b981;
+      --svc-app: #f59e0b;
+      --bg: #080808;
+      --surface: #0a0a0a;
+      --surface-elevated: rgba(17, 17, 17, 0.8);
+      --border-subtle: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.14);
+      --radius-md: 20px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      --section-py: 40px;
+      --section-py-md: 64px;
+      --glow-blur: 140px;
+      --glow-opacity: 0.07;
+    }
+
+    /* ─── Base ─── */
     body {
-      font-family: "Interphases Pro Variable", "Inter", Arial, sans-serif;
-      font-weight: 584;
+      font-family: "Inter", Arial, sans-serif;
+      font-weight: 450;
       font-style: normal;
-      background-color: #080808;
+      background-color: var(--bg);
       color: #ffffff;
     }
 
-    /* Global Noise Texture */
+    /* ─── Typography ─── */
+    .t-hero { font-family: "Poppins", sans-serif; font-weight: 700; font-size: clamp(2rem, 3.5vw, 58px); line-height: 1.15; letter-spacing: -0.02em; }
+    .t-section { font-family: "Poppins", sans-serif; font-weight: 400; font-size: clamp(1.5rem, 2.5vw, 2.25rem); line-height: 1.25; letter-spacing: -0.01em; }
+    .t-card-heading { font-family: "Poppins", sans-serif; font-weight: 400; font-size: clamp(1.25rem, 1.6vw, 1.5rem); line-height: 1.3; }
+    .t-subheading { font-family: "Poppins", sans-serif; font-weight: 400; font-size: 1.125rem; line-height: 1.4; }
+    .t-body { font-family: "Inter", Arial, sans-serif; font-weight: 400; font-size: 0.9375rem; line-height: 1.7; color: #a1a1aa; }
+    .t-label { font-family: "Inter", Arial, sans-serif; font-weight: 700; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em; color: #737373; }
+
+    /* ─── Section Spacing ─── */
+    .section-wrap { padding-top: var(--section-py); padding-bottom: var(--section-py); }
+    @media (min-width: 768px) { .section-wrap { padding-top: var(--section-py-md); padding-bottom: var(--section-py-md); } }
+    .section-hero { padding-top: 5rem; padding-bottom: var(--section-py); }
+    @media (min-width: 768px) { .section-hero { padding-top: 7rem; padding-bottom: var(--section-py-md); } }
+
+    /* ─── Card System ─── */
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); position: relative; overflow: hidden; transition: border-color 0.3s, box-shadow 0.3s; }
+    .card:hover { border-color: var(--border-strong); box-shadow: 0 0 40px rgba(255, 255, 255, 0.04); }
+    .card-lg { background: var(--surface-elevated); border: 1px solid var(--border); border-radius: var(--radius-lg); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); position: relative; overflow: hidden; }
+    .review-card { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); }
+
+    /* ─── Button System ─── */
+    .btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.875rem 2rem; background: #fff; color: var(--bg); border-radius: var(--radius-full); font-family: "Inter", sans-serif; font-weight: 700; font-size: 0.875rem; transition: transform 0.2s, background 0.2s; }
+    .btn-primary:hover { transform: scale(1.03); }
+    .btn-secondary { display: inline-flex; align-items: center; justify-content: center; padding: 0.875rem 2rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-strong); color: #fff; border-radius: var(--radius-full); font-family: "Inter", sans-serif; font-weight: 700; font-size: 0.875rem; backdrop-filter: blur(8px); transition: background 0.3s, color 0.3s; }
+    .btn-secondary:hover { background: #fff; color: var(--bg); }
+    .btn-accent { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 1rem 2rem; background: var(--accent); color: #fff; border-radius: var(--radius-full); font-family: "Inter", sans-serif; font-weight: 700; font-size: 1rem; transition: background 0.2s; box-shadow: 0 0 30px rgba(24, 121, 169, 0.3); }
+    .btn-accent:hover { background: #1a8abf; }
+    .btn-nav { display: inline-flex; align-items: center; justify-content: center; padding: 0.625rem 1.25rem; background: #fff; color: #000; border-radius: var(--radius-full); font-family: "Inter", sans-serif; font-weight: 700; font-size: 0.875rem; transition: transform 0.2s; }
+    .btn-nav:hover { transform: scale(1.05); }
+
+    /* ─── Border Utilities ─── */
+    .b-subtle { border-color: var(--border-subtle); }
+    .b-default { border-color: var(--border); }
+    .b-strong { border-color: var(--border-strong); }
+
+    /* ─── Pill (service tags) ─── */
+    .pill { display: inline-block; padding: 0.375rem 0.75rem; background: #1a1a1a; color: #d4d4d8; font-size: 0.8125rem; border-radius: var(--radius-full); border: 1px solid var(--border-subtle); }
+
+    /* ─── Glow Blob ─── */
+    .glow-blob { position: absolute; border-radius: 9999px; background: var(--accent); filter: blur(var(--glow-blur)); opacity: var(--glow-opacity); pointer-events: none; }
+
+    /* ─── Accent Text ─── */
+    .text-accent { color: var(--accent); }
+    .text-accent-light { color: var(--accent-light); }
+
+    /* ─── Navbar ─── */
+    #navbar { background: var(--bg); border-bottom: 1px solid var(--border); }
+    #navbar.nav-scrolled { background: rgba(8, 8, 8, 0.7); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom-color: var(--border-subtle); }
+    #navbar.nav-top { border-bottom-color: transparent; }
+
+    /* ─── FAQ Items ─── */
+    .faq-item { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; transition: all 0.3s; }
+    .faq-item:hover { border-color: var(--border-strong); }
+
+    /* ─── Global Noise Texture ─── */
     .noise-overlay {
       position: fixed;
       inset: 0;
@@ -44,12 +123,12 @@
     }
 
 
-    /* Preloader */
+    /* ─── Preloader ─── */
     #preloader {
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
 
-    /* Split Text */
+    /* ─── Split Text ─── */
     .char {
       display: inline-block;
       clip-path: polygon(0 0, 100% 0, 100% 120%, 0 120%);
@@ -57,121 +136,57 @@
       opacity: 0;
     }
 
-    /* Shimmer Button */
-    .shimmer-btn {
-      position: relative;
-      overflow: hidden;
-    }
-    .shimmer-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-      transform: skewX(-20deg);
-      transition: 0.5s;
-    }
-    .shimmer-btn:hover::before {
-      left: 150%;
-      transition: 0.7s ease-in-out;
-    }
+    /* ─── Shimmer Button ─── */
+    .shimmer-btn { position: relative; overflow: hidden; }
+    .shimmer-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); transform: skewX(-20deg); transition: 0.5s; }
+    .shimmer-btn:hover::before { left: 150%; transition: 0.7s ease-in-out; }
 
-    /* Floating Animation Loop */
-    @keyframes float-subtle {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-    .animate-float {
-      animation: float-subtle 6s ease-in-out infinite;
-      will-change: transform;
-    }
+    /* ─── Float Animation ─── */
+    @keyframes float-subtle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    .animate-float { animation: float-subtle 6s ease-in-out infinite; will-change: transform; }
 
-    /* Hero "Digital Success" glow */
-    .hero-glow-text {
-      text-shadow: 0 0 30px rgba(79,195,247,0.4), 0 0 60px rgba(24,121,169,0.2);
-    }
+    /* ─── Hero Glow Text ─── */
+    .hero-glow-text { color: var(--accent-light); }
 
-    /* Hero text rotator */
-    .hero-rotate-wrap {
-      display: inline-block;
-      position: relative;
-      overflow: hidden;
-      height: 1.4em;
-      vertical-align: bottom;
-      line-height: 1.4;
-    }
-    .hero-rotate-word {
-      display: block;
-      position: absolute;
-      left: 0; top: 0;
-      white-space: nowrap;
-      transform: translateY(110%);
-      opacity: 0;
-      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease;
-    }
-    .hero-rotate-word.active {
-      position: relative;
-      transform: translateY(0);
-      opacity: 1;
-    }
-    .hero-rotate-word.exit {
-      transform: translateY(-110%);
-      opacity: 0;
-    }
+    /* ─── Hero Text Rotator ─── */
+    .hero-rotate-wrap { display: inline-block; position: relative; overflow: hidden; height: 1.2em; vertical-align: text-bottom; line-height: 1.2; }
+    .hero-rotate-word { display: block; position: absolute; left: 0; top: 0; white-space: nowrap; transform: translateY(110%); opacity: 0; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease; }
+    .hero-rotate-word.active { position: relative; transform: translateY(0); opacity: 1; }
+    .hero-rotate-word.exit { transform: translateY(-110%); opacity: 0; }
 
-    /* Bento Grid Cards & Glow */
-    .bento-card {
-      position: relative;
-      overflow: hidden;
-      transform-style: preserve-3d;
-      will-change: transform;
-    }
-    .bento-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      opacity: 0;
-      transition: opacity 0.3s;
-      background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(139, 92, 246, 0.15), transparent 40%);
-      pointer-events: none;
-    }
-    .bento-card:hover::before {
-      opacity: 1;
-    }
+    /* ─── Bento Grid Glow ─── */
+    .bento-card { position: relative; overflow: hidden; transform-style: preserve-3d; will-change: transform; }
+    .bento-card::before { content: ""; position: absolute; inset: 0; z-index: 0; opacity: 0; transition: opacity 0.3s; background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(24, 121, 169, 0.15), transparent 40%); pointer-events: none; }
+    .bento-card:hover::before { opacity: 1; }
     .bento-content { position: relative; z-index: 1; }
 
-    /* Custom Scrollbar */
+    /* ─── Custom Scrollbar ─── */
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #000; }
     ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: #555; }
-
-    /* Slider hide scrollbar */
     .nm-hide-scrollbar::-webkit-scrollbar { display: none; }
     .nm-hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-    /* Animations */
+    /* ─── Marquee ─── */
     @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
     .animate-marquee { animation: marquee 25s linear infinite; }
     .animate-marquee-slow { animation: marquee 40s linear infinite; }
 
-    /* Mobile review marquee rows */
+    /* ─── Review Marquee (Mobile) ─── */
     @keyframes review-scroll-right { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     @keyframes review-scroll-left { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
     .review-marquee-right { animation: review-scroll-right 25s linear infinite; }
     .review-marquee-left { animation: review-scroll-left 30s linear infinite; }
     .review-marquee-right-fast { animation: review-scroll-right 20s linear infinite; }
 
-    /* FAQ Accordion */
+    /* ─── FAQ Accordion ─── */
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1); }
     .faq-item.active .faq-answer { max-height: 500px; }
     .faq-item.active .faq-icon { transform: rotate(45deg); }
     .faq-item.active { border-color: rgba(24,121,169,0.3) !important; }
 
-    /* Vertical scrolling reviews */
+    /* ─── Vertical Review Scroll ─── */
     .review-col { overflow: hidden; position: relative; }
     .review-track { display: flex; flex-direction: column; }
     @keyframes vscroll-up { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
@@ -179,7 +194,8 @@
     .review-col[data-dir="up"] .review-track { animation: vscroll-up 30s linear infinite; }
     .review-col[data-dir="down"] .review-track { animation: vscroll-down 35s linear infinite; }
     .reviews-wrap:hover .review-track { animation-play-state: paused; }
-    
+
+    /* ─── Lenis ─── */
     html.lenis { height: auto; }
     .lenis.lenis-smooth { scroll-behavior: auto; }
     .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
@@ -205,7 +221,7 @@
   </div>
 
   <!-- NavBar -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-3 bg-[#080808] border-b border-white/10" style="opacity: 1; visibility: visible;">
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-3" style="opacity: 1; visibility: visible;">
     <div class="container mx-auto px-6 md:px-12 flex items-center justify-between">
       <!-- Logo -->
       <a href="#" class="shrink-0">
@@ -221,7 +237,7 @@
         <a href="#contact" class="magnetic-item hover:text-white transition-colors p-2">Contact Us</a>
       </div>
       <!-- CTA -->
-      <a href="#contact" class="hidden md:inline-flex magnetic-item px-5 py-2.5 bg-white text-black rounded-full text-sm font-bold hover:scale-105 transition-transform shimmer-btn shrink-0">
+      <a href="#contact" class="hidden md:inline-flex magnetic-item btn-nav shimmer-btn shrink-0">
         Let's Talk
       </a>
       <!-- Mobile Menu -->
@@ -233,14 +249,14 @@
 
   <main>
     <!-- Linear/Raycast Style Hero Section -->
-    <section class="relative flex items-center pt-24 md:pt-32 pb-8 md:pb-12 overflow-hidden z-10">
-      <div class="container mx-auto px-6 md:px-12 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+    <section class="section-hero relative flex items-center overflow-hidden z-10">
+      <div class="container mx-auto px-6 md:px-12 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
         
         <!-- Left Side (60%) -->
         <div class="lg:col-span-7 flex flex-col items-start hero-left-elements">
-          <h1 id="hero-title" class="mb-6 mt-12 lg:mt-0" style="font-family: Gilroy, Poppins, serif; font-weight: 700; font-style: normal; font-size: clamp(2.2rem, 4.5vw, 64px); line-height: 1.2; letter-spacing: -0.02em; margin-left: -3px;">Transforming Ideas<br>into <span class="hero-glow-text" style="color: #4fc3f7;">Digital Success</span><sup class="text-[0.35em] align-super text-neutral-500 ml-1" style="-webkit-text-fill-color: #737373;">&reg;</sup></h1>
+          <h1 id="hero-title" class="t-hero mb-6 mt-12 lg:mt-0" style="margin-left: -3px;">Transforming Ideas<br>into <span class="hero-glow-text">Digital Success</span><sup class="text-[0.35em] align-super text-neutral-500 ml-1" style="-webkit-text-fill-color: #737373;">&reg;</sup></h1>
 
-          <p class="text-[16px] text-neutral-400 mb-6 max-w-lg font-medium">
+          <p class="t-body mb-6 max-w-lg">
             Helping clients with
             <span class="hero-rotate-wrap text-white font-semibold" id="hero-rotator">
               <span class="hero-rotate-word active">#1 Google position</span>
@@ -259,10 +275,10 @@
           </div>
 
           <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <a href="#contact" class="magnetic-item px-8 py-3.5 bg-white text-[#080808] rounded-full font-bold flex items-center justify-center gap-2 transition-colors shimmer-btn group">
+            <a href="#contact" class="magnetic-item btn-primary shimmer-btn group">
               <span class="w-1.5 h-1.5 bg-black rounded-full"></span> Book a Call
             </a>
-            <a href="#services" class="magnetic-item px-8 py-3.5 border border-white/20 bg-white/5 backdrop-blur-sm rounded-full font-bold hover:bg-white hover:text-black transition-all flex items-center justify-center">
+            <a href="#services" class="magnetic-item btn-secondary">
               Learn More
             </a>
           </div>
@@ -270,28 +286,27 @@
 
         <!-- Right Side (40%) -->
         <div class="lg:col-span-5 relative w-full mt-16 lg:mt-0 hero-right-wrapper" style="perspective: 1200px;">
-          <!-- Purple Radial Glow -->
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-[#1879A9] rounded-full blur-[140px] opacity-25 pointer-events-none z-0"></div>
+          <div class="glow-blob top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] z-0" style="opacity: 0.25;"></div>
           
-          <div class="animate-float relative z-10 w-full max-w-[480px] mx-auto">
+          <div class="animate-float relative z-10 w-full max-w-[420px] mx-auto">
             <!-- 3D Tilt Card -->
-            <div id="hero-tilt-card" class="relative w-full bg-[#111111]/80 backdrop-blur-2xl border border-white/10 rounded-[24px] p-6 md:p-8 shadow-2xl transform-gpu overflow-hidden">
+            <div id="hero-tilt-card" class="card-lg w-full p-5 md:p-6 shadow-2xl transform-gpu">
               
               <!-- Card Header -->
               <div class="flex justify-between items-center mb-10 relative z-10">
                 <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-                    <i data-lucide="bar-chart-2" class="w-5 h-5 text-[#1879A9]"></i>
+                  <div class="w-10 h-10 rounded-xl bg-white/5 border b-default flex items-center justify-center">
+                    <i data-lucide="bar-chart-2" class="w-5 h-5 text-accent"></i>
                   </div>
                   <div>
                     <h3 class="text-sm font-bold text-white">Live Analytics</h3>
-                    <p class="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Real-time Data</p>
+                    <p class="t-label">Real-time Data</p>
                   </div>
                 </div>
                 <!-- Pulsing Live Dot -->
                 <div class="flex items-center gap-2 px-3 py-1 bg-green-500/10 border border-green-500/20 rounded-full">
                   <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                  <span class="text-[10px] text-green-400 uppercase tracking-widest font-bold">Live</span>
+                  <span class="t-label" style="color: #4ade80;">Live</span>
                 </div>
               </div>
 
@@ -313,7 +328,7 @@
                     <linearGradient id="chart-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                       <stop offset="0%" stop-color="#1879A9" stop-opacity="0.2" />
                       <stop offset="50%" stop-color="#1879A9" stop-opacity="1" />
-                      <stop offset="100%" stop-color="#38BDF8" stop-opacity="1" />
+                      <stop offset="100%" stop-color="#4fc3f7" stop-opacity="1" />
                     </linearGradient>
                     <linearGradient id="fill-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
                       <stop offset="0%" stop-color="#1879A9" stop-opacity="0.15" />
@@ -329,12 +344,12 @@
                 </svg>
 
                 <!-- Floating Glass Metric Badges (Staggered Entry) -->
-                <div class="metric-badge absolute top-[10%] left-[40%] -translate-x-1/2 -translate-y-1/2 px-3 py-1.5 bg-[#1a1a1a]/80 backdrop-blur-md border border-white/10 rounded-lg shadow-xl flex items-center gap-2">
-                  <i data-lucide="mouse-pointer-click" class="w-3.5 h-3.5 text-[#1879A9]"></i>
+                <div class="metric-badge absolute top-[10%] left-[40%] -translate-x-1/2 -translate-y-1/2 px-3 py-1.5 bg-[#1a1a1a]/80 backdrop-blur-md border b-default rounded-lg shadow-xl flex items-center gap-2">
+                  <i data-lucide="mouse-pointer-click" class="w-3.5 h-3.5 text-accent"></i>
                   <span class="text-xs font-bold text-white">CTA Hits</span>
                 </div>
-                <div class="metric-badge absolute top-[-10%] right-[-5%] px-3 py-1.5 bg-[#1a1a1a]/80 backdrop-blur-md border border-white/10 rounded-lg shadow-xl flex items-center gap-2">
-                  <i data-lucide="zap" class="w-3.5 h-3.5 text-cyan-400"></i>
+                <div class="metric-badge absolute top-[-10%] right-[-5%] px-3 py-1.5 bg-[#1a1a1a]/80 backdrop-blur-md border b-default rounded-lg shadow-xl flex items-center gap-2">
+                  <i data-lucide="zap" class="w-3.5 h-3.5 text-accent-light"></i>
                   <span class="text-xs font-bold text-white">99.9%</span>
                 </div>
               </div>
@@ -345,188 +360,199 @@
     </section>
 
     <!-- Infinite Scroll Logos -->
-    <div class="w-full overflow-hidden border-y border-white/5 py-5 bg-[#0a0a0a]/50 backdrop-blur-md relative z-10">
+    <div class="w-full overflow-hidden border-y b-subtle py-5 bg-[#0a0a0a]/50 backdrop-blur-md relative z-10">
       <div class="flex w-max animate-marquee">
         <!-- Replicated for smooth infinite loop -->
         <div class="flex gap-20 px-10 items-center opacity-40">
-          <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Synergy Creation</h3>
-          <h3 class="text-xl font-bold tracking-[0.2em] uppercase">LANSA</h3>
-          <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Lumina Tech</h3>
-          <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Vertex Global</h3>
-          <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Zenith Labs</h3>
-          <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Quantum Flow</h3>
+          <h3 class="t-subheading tracking-[0.2em] uppercase">Synergy Creation</h3>
+          <h3 class="t-subheading tracking-[0.2em] uppercase">LANSA</h3>
+          <h3 class="t-subheading tracking-[0.2em] uppercase">Lumina Tech</h3>
+          <h3 class="t-subheading tracking-[0.2em] uppercase">Vertex Global</h3>
+          <h3 class="t-subheading tracking-[0.2em] uppercase">Zenith Labs</h3>
+          <h3 class="t-subheading tracking-[0.2em] uppercase">Quantum Flow</h3>
         </div>
         <div class="flex gap-20 px-10 items-center opacity-40">
-          <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Synergy Creation</h3>
-          <h3 class="text-xl font-bold tracking-[0.2em] uppercase">LANSA</h3>
-          <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Lumina Tech</h3>
-          <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Vertex Global</h3>
-          <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Zenith Labs</h3>
-          <h3 class="text-xl font-bold tracking-[0.2em] uppercase">Quantum Flow</h3>
+          <h3 class="t-subheading tracking-[0.2em] uppercase">Synergy Creation</h3>
+          <h3 class="t-subheading tracking-[0.2em] uppercase">LANSA</h3>
+          <h3 class="t-subheading tracking-[0.2em] uppercase">Lumina Tech</h3>
+          <h3 class="t-subheading tracking-[0.2em] uppercase">Vertex Global</h3>
+          <h3 class="t-subheading tracking-[0.2em] uppercase">Zenith Labs</h3>
+          <h3 class="t-subheading tracking-[0.2em] uppercase">Quantum Flow</h3>
         </div>
       </div>
     </div>
 
     <!-- Services Slider Section -->
-    <section id="services" class="bg-[#080808] py-10 md:py-16 relative overflow-hidden border-t border-white/5">
-      <div class="absolute bottom-[10%] left-[-10%] w-[400px] h-[400px] bg-[#1879A9] rounded-full blur-[150px] opacity-[0.07] pointer-events-none"></div>
+    <section id="services" class="section-wrap relative overflow-hidden border-t b-subtle">
+      <div class="glow-blob bottom-[10%] left-[-10%] w-[400px] h-[400px]"></div>
       <div class="container mx-auto px-6 md:px-12 mb-6 md:mb-10 stagger-up relative z-10">
-        <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">
+        <h2 class="t-section mb-6">
           Every Marketing Service <br/>
-          <span class="text-neutral-500">All Under <span class="hero-glow-text" style="color: #4fc3f7;">One Roof</span></span>
+          <span class="hero-glow-text">All Under One Roof</span>
         </h2>
-        <p class="text-lg text-neutral-400 mb-10 leading-relaxed font-light max-w-2xl">
+        <p class="t-body mb-10 max-w-2xl">
           From development and design to SEO, PPC, and automation — we deliver comprehensive digital solutions that drive traffic, generate leads, and maximize your revenue.
         </p>
       </div>
 
       <div class="relative container mx-auto px-6 md:px-12">
-        <button id="nm-prev-btn" class="absolute left-8 md:left-14 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full border border-white/10 flex items-center justify-center bg-[#0a0a0a] backdrop-blur-md hover:bg-white/5 hover:border-white/20 transition-all text-white disabled:opacity-0 disabled:pointer-events-none hidden md:flex"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg></button>
-        <button id="nm-next-btn" class="absolute right-8 md:right-14 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full border border-white/10 flex items-center justify-center bg-[#0a0a0a] backdrop-blur-md hover:bg-white/5 hover:border-white/20 transition-all text-white disabled:opacity-0 disabled:pointer-events-none hidden md:flex"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg></button>
 
-        <div id="nm-slider" class="flex overflow-x-auto snap-x snap-mandatory gap-6 w-full nm-hide-scrollbar items-stretch pb-10" style="scroll-behavior: smooth;">
+        <button id="nm-prev-btn" class="absolute top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border b-default items-center justify-center bg-[#0a0a0a] hover:bg-white/5 transition-all text-white hidden md:flex disabled:opacity-0 disabled:pointer-events-none" style="left:-16px;" disabled>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
 
-          <div class="nm-card w-[85vw] md:w-[650px] shrink-0 snap-center bg-[#0a0a0a] rounded-[24px] border border-white/10 p-8 md:p-10 flex flex-col-reverse md:flex-row gap-10 items-center transition-all duration-300 hover:scale-[1.03] hover:border-white/20 hover:shadow-[0_0_50px_rgba(255,255,255,0.05)] relative overflow-hidden group cursor-grab active:cursor-grabbing select-none">
-            <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
-            <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
-              <h3 class="text-[32px] md:text-[36px] font-bold text-[#4fc3f7] mb-4">Web Development</h3>
-              <p class="text-[#a1a1aa] mb-8 leading-relaxed text-[15px] md:text-[16px]">Build responsive, high-performing websites that provide seamless user experiences and drive business success using modern frontend technologies, powerful frameworks, and flexible CMS platforms.</p>
-              <div class="flex flex-wrap gap-2.5">
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Frontend Development</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">React JS & PHP</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">WordPress</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Shopify</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">CMS Solutions</span>
+        <button id="nm-next-btn" class="absolute top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border b-default items-center justify-center bg-[#0a0a0a] hover:bg-white/5 transition-all text-white hidden md:flex disabled:opacity-0 disabled:pointer-events-none" style="right:-16px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+
+        <div style="overflow:hidden; width:100%; padding:4px 2px;">
+          <div id="nm-slider" class="nm-hide-scrollbar" style="display:flex; gap:24px; width:100%; overflow-x:scroll; scroll-behavior:smooth;">
+
+            <div class="nm-card card group cursor-grab active:cursor-grabbing select-none shrink-0 p-5 md:p-8 flex flex-col-reverse md:flex-row gap-5 md:gap-6 items-center" style="min-width:280px; width:85%; max-width:540px;">
+              <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
+              <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
+                <h3 class="t-card-heading mb-4" style="color: var(--svc-web)">Web Development</h3>
+                <p class="t-body mb-4">Build responsive, high-performing websites that provide seamless user experiences and drive business success using modern frontend technologies, powerful frameworks, and flexible CMS platforms.</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="pill">Frontend Development</span>
+                  <span class="pill">React JS & PHP</span>
+                  <span class="pill">WordPress</span>
+                  <span class="pill">Shopify</span>
+                  <span class="pill">CMS Solutions</span>
+                </div>
+              </div>
+              <div class="w-[60px] md:w-[80px] shrink-0 relative z-10 opacity-65 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
+                <svg viewBox="0 0 160 160" class="w-full h-auto drop-shadow-2xl"><defs><linearGradient id="blueCyan" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#2dd4bf"/></linearGradient></defs><polyline points="45,55 25,80 45,105" fill="none" stroke="url(#blueCyan)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><polyline points="115,55 135,80 115,105" fill="none" stroke="url(#blueCyan)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><line x1="95" y1="45" x2="65" y2="115" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/></svg>
               </div>
             </div>
-            <div class="w-[120px] md:w-[160px] shrink-0 relative z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
-              <svg viewBox="0 0 160 160" class="w-full h-auto drop-shadow-2xl"><defs><linearGradient id="blueCyan" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#2dd4bf"/></linearGradient></defs><polyline points="45,55 25,80 45,105" fill="none" stroke="url(#blueCyan)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><polyline points="115,55 135,80 115,105" fill="none" stroke="url(#blueCyan)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><line x1="95" y1="45" x2="65" y2="115" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/></svg>
-            </div>
-          </div>
 
-          <div class="nm-card w-[85vw] md:w-[650px] shrink-0 snap-center bg-[#0a0a0a] rounded-[24px] border border-white/10 p-8 md:p-10 flex flex-col-reverse md:flex-row gap-10 items-center transition-all duration-300 hover:scale-[1.03] hover:border-white/20 hover:shadow-[0_0_50px_rgba(255,255,255,0.05)] relative overflow-hidden group cursor-grab active:cursor-grabbing select-none">
-            <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
-            <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
-              <h3 class="text-[32px] md:text-[36px] font-bold text-[#4fc3f7] mb-4">Digital Marketing</h3>
-              <p class="text-[#a1a1aa] mb-8 leading-relaxed text-[15px] md:text-[16px]">Boost your online presence and drive sales with tailored marketing strategies from SEO and PPC to social media, email campaigns, and data-backed performance monitoring.</p>
-              <div class="flex flex-wrap gap-2.5">
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">SEO</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">PPC Advertising</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Social Media Marketing</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Email Marketing</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Content Marketing</span>
+            <div class="nm-card card group cursor-grab active:cursor-grabbing select-none shrink-0 p-5 md:p-8 flex flex-col-reverse md:flex-row gap-5 md:gap-6 items-center" style="min-width:280px; width:85%; max-width:540px;">
+              <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
+              <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
+                <h3 class="t-card-heading mb-4" style="color: var(--svc-mktg)">Digital Marketing</h3>
+                <p class="t-body mb-4">Boost your online presence and drive sales with tailored marketing strategies from SEO and PPC to social media, email campaigns, and data-backed performance monitoring.</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="pill">SEO</span>
+                  <span class="pill">PPC Advertising</span>
+                  <span class="pill">Social Media Marketing</span>
+                  <span class="pill">Email Marketing</span>
+                  <span class="pill">Content Marketing</span>
+                </div>
+              </div>
+              <div class="w-[60px] md:w-[80px] shrink-0 relative z-10 opacity-65 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
+                <svg viewBox="0 0 160 160" class="w-full h-auto drop-shadow-2xl"><defs><linearGradient id="pinkPurple" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#a855f7"/></linearGradient></defs><circle cx="80" cy="80" r="50" fill="none" stroke="url(#pinkPurple)" stroke-width="1.5" opacity="0.8"/><ellipse cx="80" cy="80" rx="20" ry="50" fill="none" stroke="url(#pinkPurple)" stroke-width="1.5" opacity="0.5"/><line x1="30" y1="80" x2="130" y2="80" stroke="rgba(255,255,255,0.25)" stroke-width="1"/><circle cx="80" cy="30" r="4" fill="#fff" opacity="0.7"/><circle cx="80" cy="130" r="4" fill="#fff" opacity="0.7"/></svg>
               </div>
             </div>
-            <div class="w-[120px] md:w-[160px] shrink-0 relative z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
-              <svg viewBox="0 0 160 160" class="w-full h-auto drop-shadow-2xl"><defs><linearGradient id="pinkPurple" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#a855f7"/></linearGradient></defs><circle cx="80" cy="80" r="50" fill="none" stroke="url(#pinkPurple)" stroke-width="1.5" opacity="0.8"/><ellipse cx="80" cy="80" rx="20" ry="50" fill="none" stroke="url(#pinkPurple)" stroke-width="1.5" opacity="0.5"/><line x1="30" y1="80" x2="130" y2="80" stroke="rgba(255,255,255,0.25)" stroke-width="1"/><ellipse cx="80" cy="60" rx="45" ry="12" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/><ellipse cx="80" cy="100" rx="45" ry="12" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/><circle cx="80" cy="30" r="4" fill="#fff" opacity="0.7"/><circle cx="55" cy="55" r="3.5" fill="url(#pinkPurple)" opacity="0.8"/><circle cx="110" cy="65" r="3" fill="#fff" opacity="0.5"/><circle cx="100" cy="100" r="3.5" fill="url(#pinkPurple)" opacity="0.7"/><circle cx="55" cy="105" r="3" fill="#fff" opacity="0.5"/><circle cx="80" cy="130" r="4" fill="#fff" opacity="0.7"/><line x1="80" y1="30" x2="55" y2="55" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><line x1="55" y1="55" x2="80" y2="80" stroke="rgba(255,255,255,0.2)" stroke-width="1"/><line x1="110" y1="65" x2="100" y2="100" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><line x1="100" y1="100" x2="55" y2="105" stroke="rgba(255,255,255,0.2)" stroke-width="1"/><line x1="55" y1="105" x2="80" y2="130" stroke="rgba(255,255,255,0.3)" stroke-width="1"/></svg>
-            </div>
-          </div>
 
-          <div class="nm-card w-[85vw] md:w-[650px] shrink-0 snap-center bg-[#0a0a0a] rounded-[24px] border border-white/10 p-8 md:p-10 flex flex-col-reverse md:flex-row gap-10 items-center transition-all duration-300 hover:scale-[1.03] hover:border-white/20 hover:shadow-[0_0_50px_rgba(255,255,255,0.05)] relative overflow-hidden group cursor-grab active:cursor-grabbing select-none">
-            <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
-            <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
-              <h3 class="text-[32px] md:text-[36px] font-bold text-[#4fc3f7] mb-4">Design</h3>
-              <p class="text-[#a1a1aa] mb-8 leading-relaxed text-[15px] md:text-[16px]">We craft compelling visuals that capture attention and communicate your brand's story from memorable logos and brand identities to intuitive UI/UX and impactful print materials.</p>
-              <div class="flex flex-wrap gap-2.5">
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Branding</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Print Design</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">UI/UX Design</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Brand Guidelines</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Logo Design</span>
+            <div class="nm-card card group cursor-grab active:cursor-grabbing select-none shrink-0 p-5 md:p-8 flex flex-col-reverse md:flex-row gap-5 md:gap-6 items-center" style="min-width:280px; width:85%; max-width:540px;">
+              <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
+              <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
+                <h3 class="t-card-heading mb-4" style="color: var(--svc-design)">Design</h3>
+                <p class="t-body mb-4">We craft compelling visuals that capture attention and communicate your brand's story from memorable logos and brand identities to intuitive UI/UX and impactful print materials.</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="pill">Branding</span>
+                  <span class="pill">Print Design</span>
+                  <span class="pill">UI/UX Design</span>
+                  <span class="pill">Brand Guidelines</span>
+                  <span class="pill">Logo Design</span>
+                </div>
+              </div>
+              <div class="w-[60px] md:w-[80px] shrink-0 relative z-10 opacity-65 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
+                <svg viewBox="0 0 160 160" class="w-full h-auto drop-shadow-2xl"><defs><linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient></defs><path d="M100 30 L55 75 L55 105 L85 105 L130 60 Z" fill="none" stroke="url(#purpleBlue)" stroke-width="2" stroke-linejoin="round" opacity="0.8"/><line x1="55" y1="75" x2="85" y2="105" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/><line x1="75" y1="50" x2="110" y2="85" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/><circle cx="115" cy="45" r="6" fill="url(#purpleBlue)" opacity="0.6"/><line x1="40" y1="125" x2="120" y2="125" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/></svg>
               </div>
             </div>
-            <div class="w-[120px] md:w-[160px] shrink-0 relative z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
-              <svg viewBox="0 0 160 160" class="w-full h-auto drop-shadow-2xl"><defs><linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient></defs><path d="M100 30 L55 75 L55 105 L85 105 L130 60 Z" fill="none" stroke="url(#purpleBlue)" stroke-width="2" stroke-linejoin="round" opacity="0.8"/><line x1="55" y1="75" x2="85" y2="105" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/><line x1="75" y1="50" x2="110" y2="85" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/><circle cx="115" cy="45" r="6" fill="url(#purpleBlue)" opacity="0.6"/><line x1="40" y1="125" x2="120" y2="125" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/></svg>
-            </div>
-          </div>
 
-          <div class="nm-card w-[85vw] md:w-[650px] shrink-0 snap-center bg-[#0a0a0a] rounded-[24px] border border-white/10 p-8 md:p-10 flex flex-col-reverse md:flex-row gap-10 items-center transition-all duration-300 hover:scale-[1.03] hover:border-white/20 hover:shadow-[0_0_50px_rgba(255,255,255,0.05)] relative overflow-hidden group cursor-grab active:cursor-grabbing select-none">
-            <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
-            <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
-              <h3 class="text-[32px] md:text-[36px] font-bold text-[#4fc3f7] mb-4">SEO</h3>
-              <p class="text-[#a1a1aa] mb-8 leading-relaxed text-[15px] md:text-[16px]">Unlock organic growth and improve search rankings with data-driven SEO techniques covering on-page optimization, off-page authority building, and technical audits to maximize your visibility.</p>
-              <div class="flex flex-wrap gap-2.5">
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">On-Page SEO</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Off-Page SEO</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Technical SEO</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Site Audit</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Keyword Research</span>
+            <div class="nm-card card group cursor-grab active:cursor-grabbing select-none shrink-0 p-5 md:p-8 flex flex-col-reverse md:flex-row gap-5 md:gap-6 items-center" style="min-width:280px; width:85%; max-width:540px;">
+              <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
+              <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
+                <h3 class="t-card-heading mb-4" style="color: var(--svc-seo)">SEO</h3>
+                <p class="t-body mb-4">Unlock organic growth and improve search rankings with data-driven SEO techniques covering on-page optimization, off-page authority building, and technical audits to maximize your visibility.</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="pill">On-Page SEO</span>
+                  <span class="pill">Off-Page SEO</span>
+                  <span class="pill">Technical SEO</span>
+                  <span class="pill">Site Audit</span>
+                  <span class="pill">Keyword Research</span>
+                </div>
+              </div>
+              <div class="w-[60px] md:w-[80px] shrink-0 relative z-10 opacity-65 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
+                <svg viewBox="0 0 160 160" class="w-full h-auto drop-shadow-2xl"><defs><linearGradient id="greenTeal" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#14b8a6"/></linearGradient></defs><circle cx="70" cy="70" r="35" fill="none" stroke="url(#greenTeal)" stroke-width="1.5" opacity="0.8"/><line x1="95" y1="95" x2="125" y2="125" stroke="url(#greenTeal)" stroke-width="3" stroke-linecap="round" opacity="0.8"/><polyline points="55,80 62,72 70,76 78,60 86,65" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/><line x1="55" y1="85" x2="86" y2="85" stroke="rgba(255,255,255,0.2)" stroke-width="1"/></svg>
               </div>
             </div>
-            <div class="w-[120px] md:w-[160px] shrink-0 relative z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
-              <svg viewBox="0 0 160 160" class="w-full h-auto drop-shadow-2xl"><defs><linearGradient id="greenTeal" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#14b8a6"/></linearGradient></defs><circle cx="70" cy="70" r="35" fill="none" stroke="url(#greenTeal)" stroke-width="1.5" opacity="0.8"/><line x1="95" y1="95" x2="125" y2="125" stroke="url(#greenTeal)" stroke-width="3" stroke-linecap="round" opacity="0.8"/><polyline points="55,80 62,72 70,76 78,60 86,65" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/><line x1="55" y1="85" x2="86" y2="85" stroke="rgba(255,255,255,0.2)" stroke-width="1"/></svg>
-            </div>
-          </div>
 
-          <div class="nm-card w-[85vw] md:w-[650px] shrink-0 snap-center bg-[#0a0a0a] rounded-[24px] border border-white/10 p-8 md:p-10 flex flex-col-reverse md:flex-row gap-10 items-center transition-all duration-300 hover:scale-[1.03] hover:border-white/20 hover:shadow-[0_0_50px_rgba(255,255,255,0.05)] relative overflow-hidden group cursor-grab active:cursor-grabbing select-none">
-            <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
-            <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
-              <h3 class="text-[32px] md:text-[36px] font-bold text-[#4fc3f7] mb-4">App Development</h3>
-              <p class="text-[#a1a1aa] mb-8 leading-relaxed text-[15px] md:text-[16px]">Elevate your brand with high-performance mobile apps built for the future from custom iOS & Android development and intuitive UI/UX design to cross-platform solutions, rigorous testing, and ongoing post-launch support.</p>
-              <div class="flex flex-wrap gap-2.5">
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Custom App Development</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">UI/UX Design</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">Cross-Platform</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">iOS & Android</span>
-                <span class="px-4 py-1.5 bg-[#1f1f1f] text-[#d4d4d8] text-[13px] rounded-full border border-white/5">App Testing & QA</span>
+            <div class="nm-card card group cursor-grab active:cursor-grabbing select-none shrink-0 p-5 md:p-8 flex flex-col-reverse md:flex-row gap-5 md:gap-6 items-center" style="min-width:280px; width:85%; max-width:540px;">
+              <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
+              <div class="flex-1 flex flex-col items-start text-left relative z-10 w-full">
+                <h3 class="t-card-heading mb-4" style="color: var(--svc-app)">App Development</h3>
+                <p class="t-body mb-4">Elevate your brand with high-performance mobile apps built for the future — from custom iOS & Android development and intuitive UI/UX to cross-platform solutions, rigorous testing, and ongoing post-launch support.</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="pill">Custom App Development</span>
+                  <span class="pill">UI/UX Design</span>
+                  <span class="pill">Cross-Platform</span>
+                  <span class="pill">iOS & Android</span>
+                  <span class="pill">App Testing & QA</span>
+                </div>
+              </div>
+              <div class="w-[60px] md:w-[80px] shrink-0 relative z-10 opacity-65 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
+                <svg viewBox="0 0 160 160" class="w-full h-auto drop-shadow-2xl"><defs><linearGradient id="orangeRed" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#ef4444"/></linearGradient></defs><rect x="55" y="25" width="50" height="110" rx="10" fill="none" stroke="url(#orangeRed)" stroke-width="1.5" opacity="0.8"/><line x1="55" y1="45" x2="105" y2="45" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><line x1="55" y1="115" x2="105" y2="115" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><circle cx="80" cy="125" r="4" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.5"/><rect x="65" y="55" width="30" height="20" rx="3" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/></svg>
               </div>
             </div>
-            <div class="w-[120px] md:w-[160px] shrink-0 relative z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-500 flex justify-center">
-              <svg viewBox="0 0 160 160" class="w-full h-auto drop-shadow-2xl"><defs><linearGradient id="orangeRed" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#ef4444"/></linearGradient></defs><rect x="55" y="25" width="50" height="110" rx="10" fill="none" stroke="url(#orangeRed)" stroke-width="1.5" opacity="0.8"/><line x1="55" y1="45" x2="105" y2="45" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><line x1="55" y1="115" x2="105" y2="115" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><circle cx="80" cy="125" r="4" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.5"/><rect x="65" y="55" width="30" height="20" rx="3" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/><rect x="65" y="82" width="14" height="14" rx="3" fill="none" stroke="url(#orangeRed)" stroke-width="1" opacity="0.6"/><rect x="83" y="82" width="14" height="14" rx="3" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/></svg>
-            </div>
-          </div>
 
+          </div>
         </div>
+
+        <!-- Dots -->
+        <div id="nm-dots" style="display:flex; justify-content:center; align-items:center; gap:8px; margin-top:24px;"></div>
       </div>
     </section>
 
     <!-- About Section -->
-    <section class="py-10 md:py-16 relative z-10 overflow-hidden border-t border-white/5" id="about">
-      <div class="absolute top-[20%] right-[-15%] w-[500px] h-[500px] bg-[#1879A9] rounded-full blur-[160px] opacity-[0.08] pointer-events-none"></div>
+    <section class="section-wrap relative z-10 overflow-hidden border-t b-subtle" id="about">
+      <div class="glow-blob top-[20%] right-[-15%] w-[500px] h-[500px]"></div>
       <div class="container mx-auto px-6 md:px-12 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
           <div class="stagger-up">
-            <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">
-              Vital Web Solution <br/>
-              <span class="text-neutral-500">The Top-Rated <span class="hero-glow-text" style="color: #4fc3f7;">SEO Company</span></span>
+            <h2 class="t-section mb-6">
+              Marketing That Drives<br><span class="hero-glow-text">Measurable Results</span>
             </h2>
-            <p class="text-lg text-neutral-400 mb-10 leading-relaxed font-light">
-              We are an elite SEO and digital marketing agency driving explosive traffic from Google & AI search. We architect experiences that convert visitors into lifetime customers.
+            <p class="t-body mb-10">
+              From brand visibility to customer conversion, we build strategies that deliver consistent growth across digital channels and emerging AI platforms.
             </p>
-            
             <div class="p-6 rounded-[20px] bg-gradient-to-br from-[#0e4a6e]/20 to-neutral-900/50 border border-[#1879A9]/20 relative overflow-hidden group mb-10 inline-block">
               <div class="absolute inset-0 bg-[#1879A9]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <h3 class="text-2xl md:text-3xl font-bold text-white mb-1">
+              <h3 class="t-card-heading text-white mb-1">
                 <span class="counter" data-target="687">0</span>%
               </h3>
-              <p class="text-[#1879A9] font-semibold text-xs uppercase tracking-widest">More Revenue Than Average</p>
+              <p class="t-label" style="color: var(--accent);">More Revenue Than Average</p>
             </div>
 
-            <button class="magnetic-item flex items-center gap-3 text-lg font-bold border-b-2 border-white pb-1 hover:text-[#1879A9] hover:border-[#1879A9] transition-colors">
-              Talk to your Digital Strategist now <i data-lucide="arrow-right" class="w-5 h-5"></i>
-            </button>
+            <div class="block">
+              <a href="#contact" class="magnetic-item inline-flex items-center gap-3 t-subheading border-b-2 border-white pb-1 hover:text-[#1879A9] hover:border-[#1879A9] transition-colors">
+                Connect with Our Strategy Team <i data-lucide="arrow-right" class="w-5 h-5"></i>
+              </a>
+            </div>
           </div>
 
           <div class="relative w-full stagger-up">
             <!-- GA-style Dashboard -->
-            <div class="w-full aspect-square md:aspect-[4/3] bg-[#111]/40 rounded-[32px] border border-white/5 shadow-2xl backdrop-blur-xl p-6 md:p-8 flex flex-col">
+            <div class="card-lg w-full aspect-square md:aspect-[4/3] shadow-2xl p-6 md:p-8 flex flex-col">
 
               <!-- Top row: metric cards -->
               <div class="grid grid-cols-3 gap-3 mb-6">
-                <div class="bg-white/[0.03] rounded-xl p-3 border border-white/5">
-                  <div class="text-[9px] text-neutral-500 uppercase tracking-wider mb-1">Users</div>
+                <div class="bg-white/[0.03] rounded-xl p-3 border b-subtle">
+                  <div class="t-label mb-1">Users</div>
                   <div class="text-lg font-bold text-white">24.8K</div>
-                  <div class="text-[10px] text-emerald-400 font-semibold">+18.2%</div>
+                  <div class="text-xs text-emerald-400 font-semibold">+18.2%</div>
                 </div>
-                <div class="bg-white/[0.03] rounded-xl p-3 border border-white/5">
-                  <div class="text-[9px] text-neutral-500 uppercase tracking-wider mb-1">Sessions</div>
+                <div class="bg-white/[0.03] rounded-xl p-3 border b-subtle">
+                  <div class="t-label mb-1">Sessions</div>
                   <div class="text-lg font-bold text-white">38.1K</div>
-                  <div class="text-[10px] text-emerald-400 font-semibold">+24.6%</div>
+                  <div class="text-xs text-emerald-400 font-semibold">+24.6%</div>
                 </div>
-                <div class="bg-white/[0.03] rounded-xl p-3 border border-white/5">
-                  <div class="text-[9px] text-neutral-500 uppercase tracking-wider mb-1">Bounce</div>
+                <div class="bg-white/[0.03] rounded-xl p-3 border b-subtle">
+                  <div class="t-label mb-1">Bounce</div>
                   <div class="text-lg font-bold text-white">32.4%</div>
-                  <div class="text-[10px] text-emerald-400 font-semibold">-5.1%</div>
+                  <div class="text-xs text-emerald-400 font-semibold">-5.1%</div>
                 </div>
               </div>
 
@@ -583,24 +609,24 @@
               </div>
 
               <!-- Bottom labels -->
-              <div class="flex justify-between text-[9px] text-neutral-600 font-bold uppercase tracking-wider mt-2 px-1">
+              <div class="flex justify-between t-label mt-2 px-1" style="color: #525252;">
                 <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
               </div>
 
               <!-- Legend -->
-              <div class="flex gap-5 mt-4 pt-4 border-t border-white/5">
-                <div class="flex items-center gap-2"><div class="w-2.5 h-2.5 rounded-sm bg-[#1879A9]"></div><span class="text-[10px] text-neutral-400">Users</span></div>
-                <div class="flex items-center gap-2"><div class="w-2.5 h-2.5 rounded-sm bg-[#4fc3f7]/60"></div><span class="text-[10px] text-neutral-400">New Users</span></div>
+              <div class="flex gap-5 mt-4 pt-4 border-t b-subtle">
+                <div class="flex items-center gap-2"><div class="w-2.5 h-2.5 rounded-sm bg-[#1879A9]"></div><span class="t-label" style="color: #a3a3a3;">Users</span></div>
+                <div class="flex items-center gap-2"><div class="w-2.5 h-2.5 rounded-sm bg-[#4fc3f7]/60"></div><span class="t-label" style="color: #a3a3a3;">New Users</span></div>
               </div>
             </div>
 
             <!-- Floating card -->
-            <div id="floating-card" class="absolute -bottom-6 right-2 md:-bottom-4 md:-left-6 w-40 p-2.5 bg-[#1a1a1a]/95 rounded-lg border border-white/10 shadow-2xl backdrop-blur-xl flex items-center gap-2 z-20">
+            <div id="floating-card" class="absolute bottom-4 right-2 md:bottom-6 md:right-[-16px] w-40 p-2.5 bg-[#1a1a1a]/95 rounded-lg border b-default shadow-2xl backdrop-blur-xl flex items-center gap-2 z-20">
               <div class="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center text-green-400">
                 <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
               </div>
               <div>
-                <div class="text-[8px] text-neutral-400 uppercase tracking-widest font-bold mb-0.5">Traffic Growth</div>
+                <div class="t-label mb-0.5">Traffic Growth</div>
                 <div class="font-bold text-base text-white">+245%</div>
               </div>
             </div>
@@ -610,10 +636,10 @@
     </section>
 
     <!-- Featured Works — Horizontal Auto-Scroll -->
-    <section id="work" class="py-10 md:py-16 relative z-10 border-t border-white/5 overflow-hidden">
+    <section id="work" class="section-wrap relative z-10 border-t b-subtle overflow-hidden">
       <div class="container mx-auto px-6 md:px-12 mb-6 md:mb-10 stagger-up">
-        <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Featured <span class="hero-glow-text" style="color: #4fc3f7;">Works</span></h2>
-        <p class="text-lg text-neutral-400 leading-relaxed font-light max-w-2xl">We build websites, run campaigns, and craft designs that turn visitors into customers. Every project is custom-built around your goals and engineered to deliver results.</p>
+        <h2 class="t-section mb-6">Featured <span class="hero-glow-text">Works</span></h2>
+        <p class="t-body max-w-2xl">We build websites, run campaigns, and craft designs that turn visitors into customers. Every project is custom-built around your goals and engineered to deliver results.</p>
       </div>
 
       <div class="container mx-auto px-6 md:px-12">
@@ -624,8 +650,8 @@
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
             <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
               <div class="flex gap-2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span class="px-3 py-1 rounded-full border border-white/20 text-[10px] font-bold uppercase tracking-widest bg-black/50 backdrop-blur-md">FinTech</span>
-                <span class="px-3 py-1 rounded-full border border-white/20 text-[10px] font-bold uppercase tracking-widest bg-black/50 backdrop-blur-md">Web App</span>
+                <span class="px-3 py-1 rounded-full border b-strong t-label bg-black/50 backdrop-blur-md" style="color: #fff;">FinTech</span>
+                <span class="px-3 py-1 rounded-full border b-strong t-label bg-black/50 backdrop-blur-md" style="color: #fff;">Web App</span>
               </div>
               <h3 class="text-2xl font-bold mb-1">Nexus Dynamics</h3>
               <p class="text-neutral-400 text-sm">Next-gen banking platform dashboard.</p>
@@ -637,8 +663,8 @@
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
             <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
               <div class="flex gap-2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span class="px-3 py-1 rounded-full border border-white/20 text-[10px] font-bold uppercase tracking-widest bg-black/50 backdrop-blur-md">E-Commerce</span>
-                <span class="px-3 py-1 rounded-full border border-white/20 text-[10px] font-bold uppercase tracking-widest bg-black/50 backdrop-blur-md">Shopify</span>
+                <span class="px-3 py-1 rounded-full border b-strong t-label bg-black/50 backdrop-blur-md" style="color: #fff;">E-Commerce</span>
+                <span class="px-3 py-1 rounded-full border b-strong t-label bg-black/50 backdrop-blur-md" style="color: #fff;">Shopify</span>
               </div>
               <h3 class="text-2xl font-bold mb-1">Aura Global</h3>
               <p class="text-neutral-400 text-sm">Headless commerce with 3D configurator.</p>
@@ -650,8 +676,8 @@
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
             <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
               <div class="flex gap-2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span class="px-3 py-1 rounded-full border border-white/20 text-[10px] font-bold uppercase tracking-widest bg-black/50 backdrop-blur-md">SaaS</span>
-                <span class="px-3 py-1 rounded-full border border-white/20 text-[10px] font-bold uppercase tracking-widest bg-black/50 backdrop-blur-md">AI</span>
+                <span class="px-3 py-1 rounded-full border b-strong t-label bg-black/50 backdrop-blur-md" style="color: #fff;">SaaS</span>
+                <span class="px-3 py-1 rounded-full border b-strong t-label bg-black/50 backdrop-blur-md" style="color: #fff;">AI</span>
               </div>
               <h3 class="text-2xl font-bold mb-1">Zenith AI</h3>
               <p class="text-neutral-400 text-sm">Enterprise machine learning platform.</p>
@@ -663,8 +689,8 @@
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
             <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
               <div class="flex gap-2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span class="px-3 py-1 rounded-full border border-white/20 text-[10px] font-bold uppercase tracking-widest bg-black/50 backdrop-blur-md">Web3</span>
-                <span class="px-3 py-1 rounded-full border border-white/20 text-[10px] font-bold uppercase tracking-widest bg-black/50 backdrop-blur-md">Branding</span>
+                <span class="px-3 py-1 rounded-full border b-strong t-label bg-black/50 backdrop-blur-md" style="color: #fff;">Web3</span>
+                <span class="px-3 py-1 rounded-full border b-strong t-label bg-black/50 backdrop-blur-md" style="color: #fff;">Branding</span>
               </div>
               <h3 class="text-2xl font-bold mb-1">Quantum Node</h3>
               <p class="text-neutral-400 text-sm">Blockchain explorer and visual identity.</p>
@@ -676,48 +702,49 @@
 
 
     <!-- Reviews — 3-Column Vertical Auto-Scroll -->
-    <section class="py-10 md:py-16 relative z-10 overflow-hidden border-t border-white/5">
-      <div class="absolute top-[30%] right-[-10%] w-[450px] h-[450px] bg-[#1879A9] rounded-full blur-[160px] opacity-[0.06] pointer-events-none"></div>
+    <section class="section-wrap relative z-10 overflow-hidden border-t b-subtle">
+      <div class="glow-blob top-[30%] right-[-10%] w-[450px] h-[450px]"></div>
       <div class="container mx-auto px-6 md:px-12 relative z-10">
-        <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 md:mb-10 stagger-up">Hear from our <span class="hero-glow-text" style="color: #4fc3f7;">Clients</span></h2>
+        <h2 class="t-section mb-4 stagger-up">Hear from<br><span class="hero-glow-text">Our Clients</span></h2>
+        <p class="t-body mb-8 md:mb-10 max-w-2xl stagger-up">Real feedback from businesses we've helped grow — from higher rankings and increased traffic to stronger brands and better conversions.</p>
 
         <!-- Mobile: 3 CSS marquee rows — infinite horizontal scroll -->
         <div class="md:hidden flex flex-col gap-4 overflow-hidden stagger-up">
           <!-- Row 1 — right -->
           <div class="flex w-max review-marquee-right gap-4">
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. Exceptional service!"</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">B</div><div><span class="text-white text-[11px] font-semibold">Benjamin F</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">C</div><div><span class="text-white text-[11px] font-semibold">Chloe W</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">D</div><div><span class="text-white text-[11px] font-semibold">David M</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies are exceptional."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">M</div><div><span class="text-white text-[11px] font-semibold">Mark S</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. Exceptional service!"</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">B</div><div><span class="text-white text-xs font-semibold">Benjamin F</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">C</div><div><span class="text-white text-xs font-semibold">Chloe W</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">D</div><div><span class="text-white text-xs font-semibold">David M</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies are exceptional."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">M</div><div><span class="text-white text-xs font-semibold">Mark S</span></div></div></div>
             <!-- duplicate for seamless loop -->
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. Exceptional service!"</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">B</div><div><span class="text-white text-[11px] font-semibold">Benjamin F</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">C</div><div><span class="text-white text-[11px] font-semibold">Chloe W</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">D</div><div><span class="text-white text-[11px] font-semibold">David M</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies are exceptional."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">M</div><div><span class="text-white text-[11px] font-semibold">Mark S</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. Exceptional service!"</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">B</div><div><span class="text-white text-xs font-semibold">Benjamin F</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">C</div><div><span class="text-white text-xs font-semibold">Chloe W</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">D</div><div><span class="text-white text-xs font-semibold">David M</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies are exceptional."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">M</div><div><span class="text-white text-xs font-semibold">Mark S</span></div></div></div>
           </div>
           <!-- Row 2 — left -->
           <div class="flex w-max review-marquee-left gap-4">
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies are exceptional."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">M</div><div><span class="text-white text-[11px] font-semibold">Mark S</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. Exceptional service!"</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">B</div><div><span class="text-white text-[11px] font-semibold">Benjamin F</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">D</div><div><span class="text-white text-[11px] font-semibold">David M</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">C</div><div><span class="text-white text-[11px] font-semibold">Chloe W</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies are exceptional."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">M</div><div><span class="text-white text-xs font-semibold">Mark S</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. Exceptional service!"</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">B</div><div><span class="text-white text-xs font-semibold">Benjamin F</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">D</div><div><span class="text-white text-xs font-semibold">David M</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">C</div><div><span class="text-white text-xs font-semibold">Chloe W</span></div></div></div>
             <!-- duplicate -->
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies are exceptional."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">M</div><div><span class="text-white text-[11px] font-semibold">Mark S</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. Exceptional service!"</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">B</div><div><span class="text-white text-[11px] font-semibold">Benjamin F</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">D</div><div><span class="text-white text-[11px] font-semibold">David M</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">C</div><div><span class="text-white text-[11px] font-semibold">Chloe W</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies are exceptional."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">M</div><div><span class="text-white text-xs font-semibold">Mark S</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. Exceptional service!"</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">B</div><div><span class="text-white text-xs font-semibold">Benjamin F</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">D</div><div><span class="text-white text-xs font-semibold">David M</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">C</div><div><span class="text-white text-xs font-semibold">Chloe W</span></div></div></div>
           </div>
           <!-- Row 3 — right fast -->
           <div class="flex w-max review-marquee-right-fast gap-4">
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">C</div><div><span class="text-white text-[11px] font-semibold">Chloe W</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies are exceptional."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">M</div><div><span class="text-white text-[11px] font-semibold">Mark S</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. Exceptional service!"</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">B</div><div><span class="text-white text-[11px] font-semibold">Benjamin F</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">D</div><div><span class="text-white text-[11px] font-semibold">David M</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">C</div><div><span class="text-white text-xs font-semibold">Chloe W</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies are exceptional."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">M</div><div><span class="text-white text-xs font-semibold">Mark S</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. Exceptional service!"</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">B</div><div><span class="text-white text-xs font-semibold">Benjamin F</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">D</div><div><span class="text-white text-xs font-semibold">David M</span></div></div></div>
             <!-- duplicate -->
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">C</div><div><span class="text-white text-[11px] font-semibold">Chloe W</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies are exceptional."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">M</div><div><span class="text-white text-[11px] font-semibold">Mark S</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. Exceptional service!"</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">B</div><div><span class="text-white text-[11px] font-semibold">Benjamin F</span></div></div></div>
-            <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">D</div><div><span class="text-white text-[11px] font-semibold">David M</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">C</div><div><span class="text-white text-xs font-semibold">Chloe W</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies are exceptional."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">M</div><div><span class="text-white text-xs font-semibold">Mark S</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. Exceptional service!"</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">B</div><div><span class="text-white text-xs font-semibold">Benjamin F</span></div></div></div>
+            <div class="review-card p-5 w-[280px] shrink-0"><div class="flex text-amber-400 text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-3">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality."</p><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">D</div><div><span class="text-white text-xs font-semibold">David M</span></div></div></div>
           </div>
         </div>
 
@@ -731,30 +758,30 @@
             <!-- Col 1 — up -->
             <div class="review-col" data-dir="up">
               <div class="review-track">
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. They have a knack for crafting customized campaigns that connect with the target audience, driving engagement, and conversions. Exceptional service!"</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">B</div><div><span class="text-white text-sm font-semibold block">Benjamin F</span></div></div></div>
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled, resulting in engaging and iconic designs that have elevated our identity in the market."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">C</div><div><span class="text-white text-sm font-semibold block">Chloe W</span></div></div></div>
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality, ensuring an enhanced user experience. Their professionalism and dedication to meeting client needs are notable."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">D</div><div><span class="text-white text-sm font-semibold block">David M</span></div></div></div>
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies, professionalism, and depth of knowledge are exceptional. We experienced a significant boost in traffic and rankings. Stellar service!"</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">M</div><div><span class="text-white text-sm font-semibold block">Mark S</span></div></div></div>
+                <div class="review-card p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. They have a knack for crafting customized campaigns that connect with the target audience, driving engagement, and conversions. Exceptional service!"</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">B</div><div><span class="text-white text-sm font-semibold block">Benjamin F</span></div></div></div>
+                <div class="review-card p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled, resulting in engaging and iconic designs that have elevated our identity in the market."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">C</div><div><span class="text-white text-sm font-semibold block">Chloe W</span></div></div></div>
+                <div class="review-card p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality, ensuring an enhanced user experience. Their professionalism and dedication to meeting client needs are notable."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">D</div><div><span class="text-white text-sm font-semibold block">David M</span></div></div></div>
+                <div class="review-card p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies, professionalism, and depth of knowledge are exceptional. We experienced a significant boost in traffic and rankings. Stellar service!"</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">M</div><div><span class="text-white text-sm font-semibold block">Mark S</span></div></div></div>
               </div>
             </div>
 
             <!-- Col 2 — down -->
             <div class="review-col" data-dir="down">
               <div class="review-track">
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality, ensuring an enhanced user experience. Their professionalism and dedication to meeting client needs are notable."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">D</div><div><span class="text-white text-sm font-semibold block">David M</span></div></div></div>
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies, professionalism, and depth of knowledge are exceptional. We experienced a significant boost in traffic and rankings. Stellar service!"</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">M</div><div><span class="text-white text-sm font-semibold block">Mark S</span></div></div></div>
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. They have a knack for crafting customized campaigns that connect with the target audience, driving engagement, and conversions. Exceptional service!"</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">B</div><div><span class="text-white text-sm font-semibold block">Benjamin F</span></div></div></div>
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled, resulting in engaging and iconic designs that have elevated our identity in the market."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">C</div><div><span class="text-white text-sm font-semibold block">Chloe W</span></div></div></div>
+                <div class="review-card p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality, ensuring an enhanced user experience. Their professionalism and dedication to meeting client needs are notable."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">D</div><div><span class="text-white text-sm font-semibold block">David M</span></div></div></div>
+                <div class="review-card p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies, professionalism, and depth of knowledge are exceptional. We experienced a significant boost in traffic and rankings. Stellar service!"</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">M</div><div><span class="text-white text-sm font-semibold block">Mark S</span></div></div></div>
+                <div class="review-card p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. They have a knack for crafting customized campaigns that connect with the target audience, driving engagement, and conversions. Exceptional service!"</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">B</div><div><span class="text-white text-sm font-semibold block">Benjamin F</span></div></div></div>
+                <div class="review-card p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled, resulting in engaging and iconic designs that have elevated our identity in the market."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">C</div><div><span class="text-white text-sm font-semibold block">Chloe W</span></div></div></div>
               </div>
             </div>
 
             <!-- Col 3 — up -->
             <div class="review-col" data-dir="up">
               <div class="review-track">
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies, professionalism, and depth of knowledge are exceptional. We experienced a significant boost in traffic and rankings. Stellar service!"</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">M</div><div><span class="text-white text-sm font-semibold block">Mark S</span></div></div></div>
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. They have a knack for crafting customized campaigns that connect with the target audience, driving engagement, and conversions. Exceptional service!"</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">B</div><div><span class="text-white text-sm font-semibold block">Benjamin F</span></div></div></div>
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled, resulting in engaging and iconic designs that have elevated our identity in the market."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">C</div><div><span class="text-white text-sm font-semibold block">Chloe W</span></div></div></div>
-                <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality, ensuring an enhanced user experience. Their professionalism and dedication to meeting client needs are notable."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">D</div><div><span class="text-white text-sm font-semibold block">David M</span></div></div></div>
+                <div class="review-card p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Since partnering with Vital Web Solution, our online visibility soared! Their tailored SEO strategies, professionalism, and depth of knowledge are exceptional. We experienced a significant boost in traffic and rankings. Stellar service!"</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">M</div><div><span class="text-white text-sm font-semibold block">Mark S</span></div></div></div>
+                <div class="review-card p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Our online presence skyrocketed thanks to Vital Web Solution's innovative digital marketing strategies. They have a knack for crafting customized campaigns that connect with the target audience, driving engagement, and conversions. Exceptional service!"</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">B</div><div><span class="text-white text-sm font-semibold block">Benjamin F</span></div></div></div>
+                <div class="review-card p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"Vital Web Solution crafted stunning visuals for our brand. Their creativity and ability to capture our vision were unparalleled, resulting in engaging and iconic designs that have elevated our identity in the market."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">C</div><div><span class="text-white text-sm font-semibold block">Chloe W</span></div></div></div>
+                <div class="review-card p-6 mb-5"><div class="flex text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-neutral-300 text-sm leading-relaxed mb-4">"I'm thrilled with my new website created by Vital Web Solution! Their team beautifully blended design and functionality, ensuring an enhanced user experience. Their professionalism and dedication to meeting client needs are notable."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">D</div><div><span class="text-white text-sm font-semibold block">David M</span></div></div></div>
               </div>
             </div>
 
@@ -764,81 +791,81 @@
     </section>
 
     <!-- FAQ Section — 2 Column Layout -->
-    <section class="py-10 md:py-16 relative z-10 border-t border-white/5 overflow-hidden" id="faq">
-      <div class="absolute bottom-[20%] left-[-10%] w-[400px] h-[400px] bg-[#1879A9] rounded-full blur-[150px] opacity-[0.06] pointer-events-none"></div>
+    <section class="section-wrap relative z-10 border-t b-subtle overflow-hidden" id="faq">
+      <div class="glow-blob bottom-[20%] left-[-10%] w-[400px] h-[400px]"></div>
       <div class="container mx-auto px-6 md:px-12 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
 
           <!-- Left: Heading -->
           <div class="stagger-up">
-            <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">Questions?<br>We've Got <span class="hero-glow-text" style="color: #4fc3f7;">Answers.</span></h2>
-            <p class="text-neutral-400 text-[15px] leading-relaxed max-w-md">Everything you need to know about working with us. Here are straight answers — no fluff, no runaround.</p>
+            <h2 class="t-section mb-6">Questions?<br><span class="hero-glow-text">We've Got Answers.</span></h2>
+            <p class="t-body max-w-md">Everything you need to know about working with us. Here are straight answers — no fluff, no runaround.</p>
           </div>
 
           <!-- Right: Accordion -->
           <div class="flex flex-col gap-3 stagger-up">
-            <div class="faq-item border border-white/10 bg-white/[0.02] rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20">
+            <div class="faq-item">
               <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left">
-                <span class="text-[15px] font-bold pr-6">What services does Vital Web Solution offer?</span>
+                <span class="t-body font-bold text-white pr-6">What services does Vital Web Solution offer?</span>
                 <svg class="faq-icon w-5 h-5 text-neutral-500 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"></path></svg>
               </button>
-              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">We handle web development, SEO, digital marketing, mobile app development, and graphic design — everything from building your website and ranking it on Google, to running paid ads, managing social media, and creating your brand identity. One agency, full scope.</div></div>
+              <div class="faq-answer"><div class="px-6 pb-5 t-body">We handle web development, SEO, digital marketing, mobile app development, and graphic design — everything from building your website and ranking it on Google, to running paid ads, managing social media, and creating your brand identity. One agency, full scope.</div></div>
             </div>
 
-            <div class="faq-item border border-white/10 bg-white/[0.02] rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20">
+            <div class="faq-item">
               <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left">
-                <span class="text-[15px] font-bold pr-6">How long does it take to complete a project?</span>
+                <span class="t-body font-bold text-white pr-6">How long does it take to complete a project?</span>
                 <svg class="faq-icon w-5 h-5 text-neutral-500 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"></path></svg>
               </button>
-              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">Websites typically take 4 to 8 weeks. Mobile apps run 2 to 6 months depending on complexity. SEO starts showing movement in a few weeks, with real traction at 3 to 6 months. PPC and social campaigns can go live within days. We give you a clear timeline before any work starts.</div></div>
+              <div class="faq-answer"><div class="px-6 pb-5 t-body">Websites typically take 4 to 8 weeks. Mobile apps run 2 to 6 months depending on complexity. SEO starts showing movement in a few weeks, with real traction at 3 to 6 months. PPC and social campaigns can go live within days. We give you a clear timeline before any work starts.</div></div>
             </div>
 
-            <div class="faq-item border border-white/10 bg-white/[0.02] rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20">
+            <div class="faq-item">
               <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left">
-                <span class="text-[15px] font-bold pr-6">Will my website and app work on mobile devices?</span>
+                <span class="t-body font-bold text-white pr-6">Will my website and app work on mobile devices?</span>
                 <svg class="faq-icon w-5 h-5 text-neutral-500 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"></path></svg>
               </button>
-              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">Yes. Every website and app we build is fully responsive, tested across desktops, tablets, and smartphones. Mobile performance isn't an afterthought — it's built in from day one.</div></div>
+              <div class="faq-answer"><div class="px-6 pb-5 t-body">Yes. Every website and app we build is fully responsive, tested across desktops, tablets, and smartphones. Mobile performance isn't an afterthought — it's built in from day one.</div></div>
             </div>
 
-            <div class="faq-item border border-white/10 bg-white/[0.02] rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20">
+            <div class="faq-item">
               <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left">
-                <span class="text-[15px] font-bold pr-6">What does your digital marketing service actually include?</span>
+                <span class="t-body font-bold text-white pr-6">What does your digital marketing service actually include?</span>
                 <svg class="faq-icon w-5 h-5 text-neutral-500 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"></path></svg>
               </button>
-              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">We build and manage paid ad campaigns (Google Ads, Meta), run SEO, handle email marketing, and produce social media content. We start by mapping your goals and audience, then pick the channels that make sense for your business rather than running everything at once.</div></div>
+              <div class="faq-answer"><div class="px-6 pb-5 t-body">We build and manage paid ad campaigns (Google Ads, Meta), run SEO, handle email marketing, and produce social media content. We start by mapping your goals and audience, then pick the channels that make sense for your business rather than running everything at once.</div></div>
             </div>
 
-            <div class="faq-item border border-white/10 bg-white/[0.02] rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20">
+            <div class="faq-item">
               <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left">
-                <span class="text-[15px] font-bold pr-6">How do you approach SEO, and can you guarantee rankings?</span>
+                <span class="t-body font-bold text-white pr-6">How do you approach SEO, and can you guarantee rankings?</span>
                 <svg class="faq-icon w-5 h-5 text-neutral-500 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"></path></svg>
               </button>
-              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">Our SEO work covers on-page optimization (content, keywords, meta tags), off-page signals (link building, authority), and technical SEO (site speed, mobile-friendliness, schema markup). No honest agency can guarantee a specific ranking — Google controls that. What we can promise is proven practices applied consistently, which builds traffic over time.</div></div>
+              <div class="faq-answer"><div class="px-6 pb-5 t-body">Our SEO work covers on-page optimization (content, keywords, meta tags), off-page signals (link building, authority), and technical SEO (site speed, mobile-friendliness, schema markup). No honest agency can guarantee a specific ranking — Google controls that. What we can promise is proven practices applied consistently, which builds traffic over time.</div></div>
             </div>
 
-            <div class="faq-item border border-white/10 bg-white/[0.02] rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20">
+            <div class="faq-item">
               <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left">
-                <span class="text-[15px] font-bold pr-6">Do you handle branding and design as well?</span>
+                <span class="t-body font-bold text-white pr-6">Do you handle branding and design as well?</span>
                 <svg class="faq-icon w-5 h-5 text-neutral-500 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"></path></svg>
               </button>
-              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">Yes. We create logos, brand guidelines, and full visual identities, whether you're starting from scratch or rebranding. You get final files in JPEG, PNG, PDF, and vector formats (AI, EPS), plus revisions until the design matches your vision.</div></div>
+              <div class="faq-answer"><div class="px-6 pb-5 t-body">Yes. We create logos, brand guidelines, and full visual identities, whether you're starting from scratch or rebranding. You get final files in JPEG, PNG, PDF, and vector formats (AI, EPS), plus revisions until the design matches your vision.</div></div>
             </div>
 
-            <div class="faq-item border border-white/10 bg-white/[0.02] rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20">
+            <div class="faq-item">
               <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left">
-                <span class="text-[15px] font-bold pr-6">What technologies do you work with?</span>
+                <span class="t-body font-bold text-white pr-6">What technologies do you work with?</span>
                 <svg class="faq-icon w-5 h-5 text-neutral-500 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"></path></svg>
               </button>
-              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">On the web side: HTML, CSS, JavaScript, PHP, ReactJS, WordPress, Shopify, and Magento. For apps, we develop for both iOS and Android. For marketing, we work across Google Ads, Meta, and email platforms. If you have an existing tool or platform you're committed to, we'll work with it.</div></div>
+              <div class="faq-answer"><div class="px-6 pb-5 t-body">On the web side: HTML, CSS, JavaScript, PHP, ReactJS, WordPress, Shopify, and Magento. For apps, we develop for both iOS and Android. For marketing, we work across Google Ads, Meta, and email platforms. If you have an existing tool or platform you're committed to, we'll work with it.</div></div>
             </div>
 
-            <div class="faq-item border border-white/10 bg-white/[0.02] rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20">
+            <div class="faq-item">
               <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left">
-                <span class="text-[15px] font-bold pr-6">Do you offer ongoing support after a project launches?</span>
+                <span class="t-body font-bold text-white pr-6">Do you offer ongoing support after a project launches?</span>
                 <svg class="faq-icon w-5 h-5 text-neutral-500 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"></path></svg>
               </button>
-              <div class="faq-answer"><div class="px-6 pb-5 text-neutral-400 text-sm leading-relaxed">Yes. We provide maintenance and support for websites and apps — updates, security patches, performance fixes, and any improvements you need down the line. We can also continue managing your SEO and paid campaigns on a monthly basis.</div></div>
+              <div class="faq-answer"><div class="px-6 pb-5 t-body">Yes. We provide maintenance and support for websites and apps — updates, security patches, performance fixes, and any improvements you need down the line. We can also continue managing your SEO and paid campaigns on a monthly basis.</div></div>
             </div>
           </div>
 
@@ -847,8 +874,8 @@
     </section>
 
     <!-- CTA Section with floating pills -->
-    <section class="py-10 md:py-16 relative z-10 overflow-hidden border-t border-white/5">
-      <div class="absolute top-[40%] left-[50%] -translate-x-1/2 w-[500px] h-[500px] bg-[#1879A9] rounded-full blur-[180px] opacity-[0.07] pointer-events-none"></div>
+    <section class="section-wrap relative z-10 overflow-hidden border-t b-subtle">
+      <div class="glow-blob top-[40%] left-[50%] -translate-x-1/2 w-[500px] h-[500px]"></div>
       <div class="max-w-3xl mx-auto px-6 md:px-12 relative z-10">
 
         <!-- Floating role pills — closer to content -->
@@ -859,10 +886,10 @@
           <span class="absolute top-[62%] right-[-20px] px-4 py-1.5 rounded-full bg-[#eab308] text-black text-xs font-bold shadow-lg" style="animation: float-subtle 7s ease-in-out infinite 0.3s;">User</span>
         </div>
 
-        <div class="text-center py-16 md:py-20 relative z-10">
-          <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">Ready to Build Something<br><span class="hero-glow-text" style="color: #4fc3f7;">Extraordinary?</span></h2>
-          <p class="text-neutral-400 text-[15px] max-w-xl mx-auto mb-10 leading-relaxed">Let's create a website that stands out from the competition and delivers meaningful results for your brand.</p>
-          <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 bg-[#1879A9] text-white rounded-full font-bold text-base hover:bg-[#1a8abf] transition-colors shadow-[0_0_30px_rgba(24,121,169,0.3)]">
+        <div class="text-center py-8 md:py-12 relative z-10">
+          <h2 class="t-section mb-5">Ready to Build Something<br><span class="hero-glow-text">Extraordinary?</span></h2>
+          <p class="t-body max-w-xl mx-auto mb-10">Let's create a website that stands out from the competition and delivers meaningful results for your brand.</p>
+          <a href="#contact" class="btn-accent">
             Get Instant Quote
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
           </a>
@@ -871,19 +898,19 @@
     </section>
   </main>
 
-  <footer class="bg-[#080808] py-10 md:py-16 border-t border-white/10 relative z-10">
+  <footer class="section-wrap border-t b-default relative z-10">
     <div class="container mx-auto px-6 md:px-12">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
         <div class="lg:col-span-1">
           <img src="logo/5.png" alt="Vital Web Solution" class="h-20 w-auto mb-6">
           <div class="flex items-start gap-2 text-neutral-500 text-sm mb-8">
-            <svg class="w-4 h-4 text-[#1879A9] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+            <svg class="w-4 h-4 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
             <span>Office# 409, 4th Floor, Rania Mall, Saddar, Rawalpindi, Pakistan</span>
           </div>
         </div>
 
         <div>
-          <h4 class="font-bold mb-6 text-xl">Company</h4>
+          <h4 class="t-subheading mb-6">Company</h4>
           <ul class="space-y-4 text-neutral-400 text-base font-medium">
             <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
             <li><a href="#work" class="hover:text-white transition-colors">Portfolio</a></li>
@@ -893,7 +920,7 @@
         </div>
 
         <div>
-          <h4 class="font-bold mb-6 text-xl">Services</h4>
+          <h4 class="t-subheading mb-6">Services</h4>
           <ul class="space-y-4 text-neutral-400 text-base font-medium">
             <li><a href="#services" class="hover:text-white transition-colors">Website Development</a></li>
             <li><a href="#services" class="hover:text-white transition-colors">App Development</a></li>
@@ -904,7 +931,7 @@
         </div>
 
         <div>
-          <h4 class="font-bold mb-6 text-xl">Contact</h4>
+          <h4 class="t-subheading mb-6">Contact</h4>
           <ul class="space-y-4 text-neutral-400 text-base font-medium">
             <li><a href="tel:+923145442346" class="hover:text-white transition-colors">+92 314 5442346</a></li>
             <li><a href="mailto:careers@skyblue-ant-410151.hostingersite.com" class="hover:text-white transition-colors break-all">careers@skyblue-ant-410151.hostingersite.com</a></li>
@@ -912,7 +939,7 @@
         </div>
       </div>
 
-      <div class="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/10 text-neutral-600 font-medium text-sm">
+      <div class="flex flex-col md:flex-row items-center justify-between pt-8 border-t b-default text-neutral-600 font-medium text-sm">
         <p>Copyright &copy; 2025 VitalWebSolution. All Rights Reserved.</p>
         <div class="flex gap-6 mt-4 md:mt-0">
           <a href="https://www.instagram.com" target="_blank" class="text-neutral-500 hover:text-white transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
@@ -965,11 +992,11 @@
     const navbar = document.getElementById('navbar');
     lenis.on('scroll', ({ scroll }) => {
       if (scroll > 50) {
-        navbar.classList.add('bg-[#080808]/70', 'backdrop-blur-xl', 'border-white/5');
-        navbar.classList.remove('border-transparent');
+        navbar.classList.add('nav-scrolled');
+        navbar.classList.remove('nav-top');
       } else {
-        navbar.classList.remove('bg-[#080808]/70', 'backdrop-blur-xl', 'border-white/5');
-        navbar.classList.add('border-transparent');
+        navbar.classList.remove('nav-scrolled');
+        navbar.classList.add('nav-top');
       }
     });
 
@@ -1096,18 +1123,48 @@
       var slider = document.getElementById('nm-slider');
       var prevBtn = document.getElementById('nm-prev-btn');
       var nextBtn = document.getElementById('nm-next-btn');
+      var dotsContainer = document.getElementById('nm-dots');
       if (!slider || !prevBtn || !nextBtn) return;
+
+      var cards = slider.querySelectorAll('.nm-card');
+      var totalPages = Math.ceil(cards.length / 2);
+
+      // Build dots
+      if (dotsContainer) {
+        for (var i = 0; i < totalPages; i++) {
+          var dot = document.createElement('button');
+          dot.className = 'w-2 h-2 rounded-full bg-white/20 transition-all duration-300';
+          if (i === 0) { dot.className = 'w-6 h-2 rounded-full bg-[#4fc3f7] transition-all duration-300'; }
+          dot.dataset.page = i;
+          dot.addEventListener('click', function() {
+            var page = parseInt(this.dataset.page);
+            slider.scrollTo({ left: page * getScroll() * 2, behavior: 'smooth' });
+          });
+          dotsContainer.appendChild(dot);
+        }
+      }
 
       var getScroll = function() {
         var card = slider.querySelector('.nm-card');
-        return card ? card.offsetWidth + 24 : 600;
+        return card ? card.offsetWidth + 24 : 400;
       };
       var updateBtns = function() {
         prevBtn.disabled = slider.scrollLeft <= 10;
         nextBtn.disabled = slider.scrollLeft >= slider.scrollWidth - slider.clientWidth - 10;
+        // Update dots
+        if (dotsContainer) {
+          var currentPage = Math.round(slider.scrollLeft / (getScroll() * 2));
+          dotsContainer.querySelectorAll('button').forEach(function(d, idx) {
+            if (idx === currentPage) {
+              d.className = 'w-6 h-2 rounded-full bg-[#4fc3f7] transition-all duration-300';
+            } else {
+              d.className = 'w-2 h-2 rounded-full bg-white/20 transition-all duration-300';
+            }
+          });
+        }
       };
-      prevBtn.addEventListener('click', function() { slider.scrollBy({ left: -getScroll(), behavior: 'smooth' }); });
-      nextBtn.addEventListener('click', function() { slider.scrollBy({ left: getScroll(), behavior: 'smooth' }); });
+      prevBtn.addEventListener('click', function() { slider.scrollBy({ left: -getScroll() * 2, behavior: 'smooth' }); });
+      nextBtn.addEventListener('click', function() { slider.scrollBy({ left: getScroll() * 2, behavior: 'smooth' }); });
       slider.addEventListener('scroll', updateBtns);
 
       // Drag to scroll
@@ -1118,7 +1175,6 @@
       slider.addEventListener('mousemove', function(e) { if (!isDown) return; e.preventDefault(); var x = e.pageX - slider.offsetLeft; slider.scrollLeft = scrollLeft - (x - startX) * 2; });
 
       setTimeout(updateBtns, 100);
-      if (window.innerWidth >= 768) setTimeout(function() { slider.scrollTo({ left: getScroll(), behavior: 'auto' }); }, 100);
     })();
 
     // Start Sequence
@@ -1252,8 +1308,6 @@
         });
       });
     }
-
-    // --- FAQ Accordion ---
     // FAQ Accordion — one open at a time
     document.querySelectorAll('.faq-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
